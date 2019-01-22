@@ -31,5 +31,5 @@
 /config/master.key
 
 bundle.js
-bundle.js.map 
+bundle.js*
 
