@@ -60,10 +60,9 @@ class SignupForm extends React.Component {
     });
 
     return (
-      <div className="signup-form-container">
-        <Link to="/" className="close-session-form">&times;</Link>
+      <div className="session-form-container">
         
-        <form onSubmit={this.handleSubmit}>
+        <form className="session-form" onSubmit={this.handleSubmit}>
           <label htmlFor="email">
             <input id="email" type="email" placeholder="Email address" onChange={this.update("email")}/>
           </label>
@@ -76,6 +75,8 @@ class SignupForm extends React.Component {
           <label htmlFor="password">
             <input id="password" type="password" placeholder="Create a Password" onChange={this.update("password")}/>
           </label>
+          <h2>Birthday</h2>
+          <p>To sign up, you must be 18 or older. Other people won’t see your birthday.</p>
           <div className="birthday-selectors-container">
             <label htmlFor="birthMonth">
               <select defaultValue="" id="birthMonth" onChange={this.update('birthMonth')}>
@@ -107,11 +108,10 @@ class SignupForm extends React.Component {
               </select>
             </label>
           </div>
-          <button className="signup-button">Sign Up</button>
+          <button>Sign Up</button>
         </form>
 
-        <span>Already have a RailsBnB account?</span>
-        <Link to="/login">Log in</Link>
+        
       </div>
     )
   }

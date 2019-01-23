@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ModalSessionForm from '../session/modal_session_container';
 
 class Splash extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  
   render() {
 
 
@@ -17,18 +18,13 @@ class Splash extends React.Component {
               <p className="logo">R</p>
             </div>
             <div className="splash-nav-buttons">
-              <div className="splash-nav-button">
-                <Link to="/signup">Sign up</Link>
-              </div>
-              <div className="splash-nav-button">
-                <Link to="/login">Log in</Link>
-              </div>
+              <ModalSessionForm  />
             </div>
           </header>
 
           <h1>Plan your next trip</h1>
           <div className="splash-search-container">
-            <h2>Search component goes here</h2>
+            <h2>I WILL BECOME A SEARCH BAR</h2>
           </div>
         </div>
         <h1>Spots Index will go down here</h1>

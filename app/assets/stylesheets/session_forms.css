@@ -1,0 +1,170 @@
+.modal-overlay {
+  position: fixed; 
+  top: 0px; 
+  left: 0px; 
+  right: 0px; 
+  bottom: 0px; 
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content-login {
+  height: 400px;
+  position: absolute; 
+  top: 50px; 
+  left: 0; 
+  right: 0; 
+  bottom: 40px;  
+  margin-left: auto;
+  margin-right: auto;
+  background: rgb(255, 255, 255); 
+  outline: none; 
+  padding: 32px;
+  width: 560px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.modal-content-signup {
+  height: auto;
+  position: absolute; 
+  top: 50px; 
+  left: 0; 
+  right: 0; 
+  bottom: 40px;  
+  margin-left: auto;
+  margin-right: auto;
+  background: rgb(255, 255, 255); 
+  outline: none; 
+  padding: 32px;
+  width: 560px;
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.session-form-container {
+  width: 100%;
+  display: flex;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.session-form {
+  display: flex;
+  flex-direction: column;
+  font-family: inherit;
+}
+
+.session-form input {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  width: 100%;
+  height: 50px;
+  box-sizing: border-box;
+  font-size: 16px;
+  padding: 12px;
+  font-weight: 200;
+  border: 1px solid #EBEBEB;
+}
+
+.session-form input:focus {
+  border: 1px solid rgb(118, 118, 118);
+  outline: none;
+}
+
+.session-form > label {
+  width: 500px;
+}
+
+.session-form-container button {
+  background-color: rgb(255, 90, 95);
+  padding: 14px 22px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.x-button {
+  font-size: 40px;
+  border-radius: 50%;
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  font-weight: lighter;
+  position: relative;
+}
+
+.x-button p {
+  color: rgb(118, 118, 118);
+  position: absolute;
+  bottom: -2px;
+  right: 4px;
+}
+
+.session-switch-container {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  border-top: 1px solid #EBEBEB;
+  color: #6B6B6B;
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.session-switch-container button {
+  border: none;
+  background: none;
+  font-size: 16px;
+  color: #008389;
+}
+
+.session-switch-container button:hover {
+  text-decoration: underline;
+}
+
+.birthday-selectors-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.birthday-selectors-container select {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  height: 50px;
+  font-size: 16px;
+  padding: 12px;
+  font-weight: 200;
+  border: 1px solid #EBEBEB;
+  background-color: white;
+  color: #484848;
+}
+
+.session-form p {
+  font-size: 14px;
+  color: #686868;
+  margin-bottom: 20px;
+  font-weight: 200
+}
+
+.session-form h2 {
+  color: #484848;
+  font-size: 16px;
+  margin-bottom: 18px;
+}
+
+#birthMonth {
+  width: 200px;
+}
+
+#birthDay {
+  width: 110px;
+}
+
+#birthYear {
+  width: 155px;
+}
