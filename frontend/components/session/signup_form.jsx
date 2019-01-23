@@ -25,8 +25,13 @@ class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // LOGIC FOR CONVERTING DATE ELEMENTS INTO DATE,
-    // CONVERT VARIABLE NAMES TO SNAKE CASE? 
+    const newUser = {
+      email: this.state.email,
+      first_name: this.state.firstName,
+      last_name: this.state.lastName,
+      password: this.state.password
+    };
+    this.props.submit(newUser);
   }
 
  
@@ -56,7 +61,8 @@ class SignupForm extends React.Component {
 
     return (
       <div className="signup-form-container">
-        <button className="close-signup-form">&times;</button>
+        <Link to="/" className="close-session-form">&times;</Link>
+        
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="email">
             <input id="email" type="email" placeholder="Email address" onChange={this.update("email")}/>
@@ -103,6 +109,7 @@ class SignupForm extends React.Component {
           </div>
           <button className="signup-button">Sign Up</button>
         </form>
+
         <span>Already have a RailsBnB account?</span>
         <Link to="/login">Log in</Link>
       </div>

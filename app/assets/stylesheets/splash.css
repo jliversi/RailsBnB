@@ -1,0 +1,56 @@
+.splash {
+  height: 100vh;
+  width: 100vw;
+  background-image: url('splash_background2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+} 
+
+.splash header {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+}
+
+.splash-logo-container {
+  padding-top: 30px;
+  height: 40px;
+  margin-left: 20px;
+}
+
+.logo {
+  font-family: 'Sacramento', cursive;
+  font-size: 40px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3)
+}
+
+
+
+.splash-nav-buttons {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 30px;
+  font-weight: 200;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.splash-nav-button {
+  color: white;
+  text-decoration: none;
+  padding-top: 30px;
+  height: 40px;
+}
+
+.splash-nav-button:hover {
+  border-bottom: 2px solid white;
+}
+
+.splash-nav-button a {
+  text-decoration: none;
+  color: white;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3)
+}

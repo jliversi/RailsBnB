@@ -8,6 +8,18 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => {
       !loggedIn ? (
         <Component {...props} />
       ) : (
+          <Redirect to="/index" />
+        )
+    )} />
+  )
+};
+
+const Protected = ({ component: Component, path, loggedIn, exact }) => {
+  return (
+    <Route exact={exact} path={path} render={(props) => (
+      loggedIn ? (
+        <Component {...props} />
+      ) : (
           <Redirect to="/" />
         )
     )} />
@@ -21,3 +33,4 @@ const msp = state => {
 };
 
 export const AuthRoute = withRouter(connect(msp)(Auth));
+export const ProtectedRoute = withRouter(connect(msp)(Protected));
