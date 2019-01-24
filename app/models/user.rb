@@ -12,12 +12,16 @@
 #  updated_at      :datetime         not null
 #
 
+
+
 class User < ApplicationRecord
   validates :email, :session_token, presence: true, uniqueness: true
   validates :first_name, :last_name, presence: true
   validates :password, length: {minimum: 6}, allow_nil: true
+  validates :birth_year, numericality: {less_than: (Time.new.year - 17) }, allow_nil: true 
 
   attr_reader :password
+  attr_accessor :birth_year 
 
   after_initialize :ensure_session_token
 

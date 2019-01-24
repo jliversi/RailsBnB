@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import ModalSessionForm from '../session/modal_session_container';
 
 class Splash extends React.Component {

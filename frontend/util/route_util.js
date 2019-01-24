@@ -26,6 +26,18 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => {
   )
 };
 
+const Nav = ({ component: Component, path, loggedIn, exact }) => {
+  return (
+    <Route exact={exact} path={path} render={(props) => (
+      loggedIn ? (
+        <Component {...props} />
+      ) : (
+          null
+        )
+    )} />
+  )
+};
+
 const msp = state => {
   return {
     loggedIn: Boolean(state.session.id)
@@ -34,3 +46,4 @@ const msp = state => {
 
 export const AuthRoute = withRouter(connect(msp)(Auth));
 export const ProtectedRoute = withRouter(connect(msp)(Protected));
+export const NavRoute = withRouter(connect(msp)(Nav));

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -17,6 +16,10 @@ class SignupForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return e => {
       this.setState({[field]: e.target.value});
@@ -29,7 +32,8 @@ class SignupForm extends React.Component {
       email: this.state.email,
       first_name: this.state.firstName,
       last_name: this.state.lastName,
-      password: this.state.password
+      password: this.state.password,
+      birth_year: this.state.birthYear
     };
     this.props.submit(newUser);
   }
@@ -37,6 +41,12 @@ class SignupForm extends React.Component {
  
 
   render() {
+    const errorsFormatted = this.props.errors.map((error, idx) => {
+      return (
+        <li key={idx}>{error}</li>
+      );
+    });
+
     const yearsArr = [];
     for (let i = 2019; i >= 1899; i--) {
       yearsArr.push(i);
@@ -61,7 +71,10 @@ class SignupForm extends React.Component {
 
     return (
       <div className="session-form-container">
-        
+        <ul className="session-errors">
+          {errorsFormatted}
+        </ul>
+
         <form className="session-form" onSubmit={this.handleSubmit}>
           <label htmlFor="email">
             <input id="email" type="email" placeholder="Email address" onChange={this.update("email")}/>

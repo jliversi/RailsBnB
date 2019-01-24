@@ -8,8 +8,9 @@
 }
 
 .modal-content-login {
-  height: 400px;
+  height: auto;
   position: absolute; 
+  max-height: 485px;
   top: 50px; 
   left: 0; 
   right: 0; 
@@ -26,6 +27,7 @@
 
 .modal-content-signup {
   height: auto;
+  max-height: 700px;
   position: absolute; 
   top: 50px; 
   left: 0; 
@@ -49,6 +51,7 @@
   align-items: center;
   padding: 32px;
   box-sizing: border-box;
+  padding-top: 10px;
 }
 
 .session-form {
@@ -87,6 +90,7 @@
   border-radius: 4px;
   letter-spacing: 1px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .x-button {
@@ -167,4 +171,11 @@
 
 #birthYear {
   width: 155px;
+}
+
+.session-errors li {
+  color: #dc4200;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  margin-bottom: 10px;
 }

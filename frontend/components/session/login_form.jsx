@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -10,6 +9,11 @@ class LoginForm extends React.Component {
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -23,18 +27,34 @@ class LoginForm extends React.Component {
     this.props.submit(this.state);
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    this.props.submit({email: "demo@demo.com", password: "demo123"});
+  }
+
   render() {
+    const errorsFormatted = this.props.errors.map((error, idx) => {
+      return (
+        <li key={idx}>{error}</li>
+      );
+    });
+
+
     return (
       <div className="session-form-container">
+        <ul className="session-errors">
+          {errorsFormatted}
+        </ul>
 
-        <form className="session-form" onSubmit={this.handleSubmit}>
+        <form className="session-form" >
           <label htmlFor="login-email">
             <input id="login-email" type="email" placeholder="Email Address" onChange={this.update("email")} />
           </label>
           <label htmlFor="login-password">
-            <input id="login-password" type="password" placeholder="Create a Password" onChange={this.update("password")} />
+            <input id="login-password" type="password" placeholder="Password" onChange={this.update("password")} />
           </label>
-          <button>Log in</button>
+          <button onClick={this.handleSubmit}>Log in</button>
+          <button onClick={this.demoLogin}>Log in as demo user</button>
         </form>
 
         
