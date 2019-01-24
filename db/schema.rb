@@ -10,10 +10,91 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_22_222245) do
+ActiveRecord::Schema.define(version: 2019_01_24_220615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.bigint "byte_size", null: false
+    t.string "checksum", null: false
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "amenities", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.boolean "status", null: false
+    t.datetime "start_date", null: false
+    t.datetime "end_date", null: false
+    t.integer "spot_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spot_id"], name: "index_bookings_on_spot_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "url", null: false
+    t.integer "spot_id", null: false
+    t.index ["spot_id"], name: "index_photos_on_spot_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating", null: false
+    t.text "body", null: false
+    t.integer "booking_id", null: false
+    t.integer "author_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["author_id"], name: "index_reviews_on_author_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
+
+  create_table "spots", force: :cascade do |t|
+    t.string "address", null: false
+    t.float "lng", null: false
+    t.float "lat", null: false
+    t.string "title", null: false
+    t.text "description"
+    t.integer "price", null: false
+    t.integer "num_rooms", null: false
+    t.integer "num_guests", null: false
+    t.integer "num_bathrooms", null: false
+    t.integer "host_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["host_id"], name: "index_spots_on_host_id"
+  end
+
+  create_table "spots_amenities_joins", force: :cascade do |t|
+    t.integer "amenity_id", null: false
+    t.integer "spot_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["amenity_id"], name: "index_spots_amenities_joins_on_amenity_id"
+    t.index ["spot_id"], name: "index_spots_amenities_joins_on_spot_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -28,4 +109,5 @@ ActiveRecord::Schema.define(version: 2019_01_22_222245) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
 end

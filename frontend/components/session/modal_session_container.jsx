@@ -49,6 +49,7 @@ class ModalSessionForm extends React.Component {
       <div>
         <button className="splash-nav-button" onClick={this.handleOpenModalSignup}>Sign up</button>
         <button className="splash-nav-button" onClick={this.handleOpenModalLogin}>Log in</button>
+
         <ReactModal 
           ariaHideApp={false} 
           isOpen={this.state.showModalLogin}
@@ -80,6 +81,8 @@ class ModalSessionForm extends React.Component {
           shouldCloseOnOverlayClick={true}
           onRequestClose={this.handleCloseModalSignup}
         >
+
+
           <button className="x-button" onClick={this.handleCloseModalSignup}>
             <p>&times;</p>
           </button>
@@ -89,6 +92,9 @@ class ModalSessionForm extends React.Component {
               <button onClick={this.switchLoginSignup}>Log in</button>
             </span>
           </div>
+
+
+          
         </ReactModal>
       </div>
     )

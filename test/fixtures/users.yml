@@ -6,11 +6,11 @@
 #  email           :string           not null
 #  first_name      :string           not null
 #  last_name       :string           not null
-#  birthdate       :date             not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  bio             :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

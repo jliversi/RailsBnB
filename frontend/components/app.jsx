@@ -8,10 +8,10 @@ import NavBarContainer from './navbar/navbar_container';
 const App = () => {
   return (
     <div className="app">
-      <header>
-        <NavRoute path="/" component={NavBarContainer} />  
-      </header>
-      <AuthRoute exact path="/" component={SplashContainer} /> 
+      <Switch>
+        <AuthRoute exact path="/" component={SplashContainer} /> 
+        <ProtectedRoute path="/" component={NavBarContainer} />  
+      </Switch>
     </div>
   )
 };

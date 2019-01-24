@@ -10,20 +10,34 @@
 #  session_token   :string           not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  bio             :text
 #
-
 
 
 class User < ApplicationRecord
   validates :email, :session_token, presence: true, uniqueness: true
   validates :first_name, :last_name, presence: true
   validates :password, length: {minimum: 6}, allow_nil: true
-  validates :birth_year, numericality: {less_than: (Time.new.year - 17) }, allow_nil: true 
+  validates :birth_year, numericality: {less_than: (Time.new.year - 17) }, allow_nil: true
+
 
   attr_reader :password
   attr_accessor :birth_year 
 
   after_initialize :ensure_session_token
+
+  has_many :bookings,
+    class_name: "Booking",
+    foreign_key: :user_id
+
+  has_many :reviews,
+    class_name: "Review",
+    foreign_key: :author_id
+
+  has_many :spots,
+    class_name: "Spot",
+    foreign_key: :host_id
+
 
   def User.find_by_credentials(email, password)
     user = User.find_by(email: email)
