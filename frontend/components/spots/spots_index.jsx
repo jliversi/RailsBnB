@@ -18,8 +18,11 @@ class SpotsIndex extends React.Component {
    
     return (
       <div className="spots-index-container">
-        <h1>ALL SPOTS</h1>
-        {indexItems}
+        <h1>Top-rated spots</h1>
+        <p>Explore some of the best-reviewed homes in my seed file</p>
+        <div className="spots-index-items-container">
+          {indexItems}
+        </div>
       </div>
     )
   }

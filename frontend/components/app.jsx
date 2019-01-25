@@ -3,9 +3,9 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute, NavRoute } from '../util/route_util';
 import SplashContainer from './splash/splash_container';
 import NavBarContainer from './navbar/navbar_container';
-import SpotsIndex from './spots/spots_index';
 import SpotsIndexContainer from './spots/spots_index_container';
-
+import SearchFilterButtons from './search/search_filter_buttons';
+import SpotsShowContainer from './spots/spots_show_container';
 
 const App = () => {
   return (
@@ -14,7 +14,10 @@ const App = () => {
         <AuthRoute exact path="/" component={SplashContainer} /> 
         <ProtectedRoute path="/" component={NavBarContainer} />  
       </Switch>
-      <SpotsIndexContainer /> 
+      <ProtectedRoute exact path="/index" component={SearchFilterButtons} /> 
+      <Route exact path="/" component={SpotsIndexContainer}/> 
+      <Route exact path="/index" component={SpotsIndexContainer}/>
+      <ProtectedRoute exact path="/spots/:spotId" component={SpotsShowContainer} />
     </div>
   )
 };

@@ -1,23 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = (props) => {
-  return (
-    <header>
-      <div className="main-nav-bar">
-        <div className="logo-and-search">
-          <p>Logo</p>
-          <p>Search Bar Goes Here</p>
-        </div>
-        <div className='nav-bar-buttons'>
-          <i>{props.user.first_name[0]}</i>
-          <div className='logout-dropdown'>
-            <button onClick={props.logout}>Logout</button>
+class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { dropdownActive: false};
+    this.reveal = this.reveal.bind(this);
+  }
+
+  reveal() {
+    this.setState({dropdownActive: !this.state.dropdownActive });
+  }
+  
+  render() {
+    return (
+      <header>
+        <div className="main-nav-bar">
+          <div className="logo-and-search">
+            <Link className="nav-logo" to="/index">R</Link>
+            <p>Search Bar Goes Here</p>
+          </div>
+          <div onClick={this.reveal} className='nav-bar-buttons'>
+            <i>{this.props.user.first_name[0]}</i>
+            <div className={this.state.dropdownActive ? "revealed" : "hidden"}>
+              <ul>
+                <button onClick={this.props.logout}>Logout</button>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </header>
-  )
+      </header>
+    )
+  }
 };
 
 export default NavBar;

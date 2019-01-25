@@ -23,13 +23,15 @@ Spot.create(address: "22 W 38th St, New York, NY 10018",
   lng: -73.949749, lat: 40.708803,
   title: "Sweet office space", price: 20,
   num_rooms: 4, num_guests: 8, 
-  num_bathrooms: 2, host_id: User.last.id)
+  num_bathrooms: 2, host_id: User.last.id,
+  spot_type: "Office", location: "New York")
 
 Spot.create(address: "22 W 42nd St, New York, NY 10036", 
   lng: -73.997656, lat: 40.732697,
   title: "Another office space", price: 20,
   num_rooms: 4, num_guests: 8, 
-  num_bathrooms: 2, host_id: User.last.id)
+  num_bathrooms: 2, host_id: User.last.id,
+  spot_type: "Office", location: "New York")
 
 
 Amenity.create(name: "Wifi")
@@ -64,9 +66,9 @@ Review.create(rating: 4, body: "Great office, elevators were broken though",
 Review.create(rating: 5, body: "Perfect office, two working elevators!",
   booking_id: Booking.all[1].id, author_id: User.first.id)
 Review.create(rating: 3, body: "It's an office",
-  booking_id: Booking.all[2].id, author_id: User.first.id)
-Review.create(rating: 5, body: "This is a seed review",
   booking_id: Booking.all[3].id, author_id: User.first.id)
+Review.create(rating: 5, body: "This is a seed review",
+  booking_id: Booking.all[4].id, author_id: User.first.id)
 
 Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p1.jpg", spot_id: Spot.first.id)
 Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)

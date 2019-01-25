@@ -1,0 +1,60 @@
+.spots-index-container {
+  padding: 50px 80px;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #484848;
+}
+
+.spots-index-container a {
+  text-decoration: none;
+}
+
+.spots-index-container > h1 {
+  font-size: 23px;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.spots-index-container > p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-weight: 200;
+}
+
+.spots-index-items-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.index-item-img {
+  height: 200px;
+  margin-bottom: 5px;
+}
+
+.index-item {
+  margin-right: 17px;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+}
+
+.index-type {
+  color: rgb(0, 132, 137);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.index-item h1 {
+  color: rgb(72, 72, 72);
+  letter-spacing: 1px;
+  font-weight: 500;
+  margin-bottom: 7px;
+  margin-top: 4px;
+}
+
+.index-price {
+  color: rgb(72, 72, 72);
+  font-weight: 200;
+  margin-bottom: 7px;
+  font-size: 14px;
+}
+
+
+
