@@ -25,6 +25,12 @@ Spot.create(address: "22 W 38th St, New York, NY 10018",
   num_rooms: 4, num_guests: 8, 
   num_bathrooms: 2, host_id: User.last.id)
 
+Spot.create(address: "22 W 42nd St, New York, NY 10036", 
+  lng: -73.997656, lat: 40.732697,
+  title: "Another office space", price: 20,
+  num_rooms: 4, num_guests: 8, 
+  num_bathrooms: 2, host_id: User.last.id)
+
 
 Amenity.create(name: "Wifi")
 Amenity.create(name: "Kitchen")
@@ -33,6 +39,8 @@ Amenity.create(name: "Coffee Maker")
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[0].id, spot_id: Spot.first.id)
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[1].id, spot_id: Spot.first.id)
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[2].id, spot_id: Spot.first.id)
+SpotsAmenitiesJoin.create(amenity_id: Amenity.all[0].id, spot_id: Spot.last.id)
+SpotsAmenitiesJoin.create(amenity_id: Amenity.all[1].id, spot_id: Spot.last.id)
 
 Booking.create(status: true, start_date: "12/11/2018", 
   end_date: "20/11/2018", spot_id: Spot.first.id,
@@ -40,13 +48,27 @@ Booking.create(status: true, start_date: "12/11/2018",
 Booking.create(status: true, start_date: "12/12/2018", 
   end_date: "20/12/2018", spot_id: Spot.first.id,
   user_id: User.first.id)
+Booking.create(status: true, start_date: "12/12/2019", 
+  end_date: "20/12/2019", spot_id: Spot.first.id,
+  user_id: User.first.id)
+
+Booking.create(status: true, start_date: "12/11/2017", 
+  end_date: "20/11/2017", spot_id: Spot.last.id,
+  user_id: User.first.id)
+Booking.create(status: true, start_date: "12/12/2017", 
+  end_date: "20/12/2017", spot_id: Spot.last.id,
+  user_id: User.first.id)
 
 Review.create(rating: 4, body: "Great office, elevators were broken though",
   booking_id: Booking.all[0].id, author_id: User.first.id)
 Review.create(rating: 5, body: "Perfect office, two working elevators!",
   booking_id: Booking.all[1].id, author_id: User.first.id)
+Review.create(rating: 3, body: "It's an office",
+  booking_id: Booking.all[2].id, author_id: User.first.id)
+Review.create(rating: 5, body: "This is a seed review",
+  booking_id: Booking.all[3].id, author_id: User.first.id)
 
 Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p1.jpg", spot_id: Spot.first.id)
 Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.first.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
   

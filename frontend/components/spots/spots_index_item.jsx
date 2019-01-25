@@ -5,18 +5,17 @@ class SpotsIndexItem extends React.Component {
     super(props);
   }
 
-
   render() {
+    const spot = this.props.spot; 
+    const imageId = spot.photos[0]
+    const image = <img src={this.props.photos[imageId].url} alt={imageId} key={imageId}/>
 
-    const images = this.props.spot.photos.map(id => (
-      <img src={this.props.photos[id].url} alt={id} key={id}/>
-    ));
-
-    
     return (
       <div>
-        <h1>{this.props.spot.title}</h1>
-        {images}
+        <h1>{spot.title}</h1>
+        {image}
+        <p>${spot.price} per night</p>
+        <p>Average rating: {spot.avg_rating}</p>
       </div>
     );
   }
