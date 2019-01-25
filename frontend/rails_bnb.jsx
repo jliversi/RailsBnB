@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
+import { fetchSpot, fetchSpots } from './actions/spots_actions';
 
 
 
@@ -27,6 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.store = store;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.fetchSpot = fetchSpot;
+  window.fetchSpots = fetchSpots;
 
 
 });

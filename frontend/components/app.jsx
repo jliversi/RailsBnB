@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute, NavRoute } from '../util/route_util';
 import SplashContainer from './splash/splash_container';
 import NavBarContainer from './navbar/navbar_container';
+import SpotsIndex from './spots/spots_index';
+import SpotsIndexContainer from './spots/spots_index_container';
 
 
 const App = () => {
@@ -12,6 +14,7 @@ const App = () => {
         <AuthRoute exact path="/" component={SplashContainer} /> 
         <ProtectedRoute path="/" component={NavBarContainer} />  
       </Switch>
+      <SpotsIndexContainer /> 
     </div>
   )
 };

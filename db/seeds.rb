@@ -46,6 +46,7 @@ Review.create(rating: 4, body: "Great office, elevators were broken though",
 Review.create(rating: 5, body: "Perfect office, two working elevators!",
   booking_id: Booking.all[1].id, author_id: User.first.id)
 
-Photo.create(url: "placeholder_url_1", spot_id: Spot.first.id)
-Photo.create(url: "placeholder_url_2", spot_id: Spot.first.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p1.jpg", spot_id: Spot.first.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.first.id)
   

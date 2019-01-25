@@ -70,3 +70,4 @@ class User < ApplicationRecord
 
 
 end
+

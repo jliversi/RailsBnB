@@ -36,13 +36,16 @@ class Spot < ApplicationRecord
     class_name: "Review",
     through: :bookings
 
-  has_many :photos,
+ has_many :photos,
     class_name: "Photo",
     foreign_key: :spot_id
+
 
   belongs_to :host,
     class_name: "User",
     foreign_key: :host_id 
+
+  
 
   def average_rating
     ratings = []

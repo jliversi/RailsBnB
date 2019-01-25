@@ -1,4 +1,3 @@
-
 json.spot do
   json.set! @spot.id do 
     json.partial! "api/spots/spot", spot: @spot
@@ -43,8 +42,10 @@ json.host do
 end
 
 json.photos do
-  @spot.photos do |photo|
-    json.extract photo, :id, :url
+  @spot.photos.each do |photo|
+    json.set! photo.id do
+      json.extract! photo, :id, :url
+    end 
   end 
 end 
 
