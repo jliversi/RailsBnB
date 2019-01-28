@@ -6,12 +6,24 @@ class NavBar extends React.Component {
     super(props);
     this.state = { dropdownActive: false};
     this.reveal = this.reveal.bind(this);
+    this.changeListener = this.changeListener.bind(this);
+  }
+
+  componentDidMount() {
   }
 
   reveal() {
-    this.setState({dropdownActive: !this.state.dropdownActive });
+    this.setState({ dropdownActive: !this.state.dropdownActive }, () => this.changeListener());
   }
-  
+
+  changeListener() {
+    if (!this.state.dropdownActive) {
+      document.removeEventListener('click', this.reveal);
+    } else {
+      document.addEventListener('click', this.reveal);
+    }
+  }
+
   render() {
     return (
       <header>
@@ -21,8 +33,8 @@ class NavBar extends React.Component {
             <p>Search Bar Goes Here</p>
           </div>
           <div onClick={this.reveal} className='nav-bar-buttons'>
-            <i>{this.props.user.first_name[0]}</i>
-            <div className={this.state.dropdownActive ? "revealed" : "hidden"}>
+            <i>{this.props.user ? this.props.user.first_name[0] : ""}</i>
+            <div onClick={this.stopProp} className={this.state.dropdownActive ? "revealed" : "hidden"}>
               <ul>
                 <button onClick={this.props.logout}>Logout</button>
               </ul>

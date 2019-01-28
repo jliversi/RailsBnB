@@ -20,19 +20,18 @@ User.create(email: "host@host.com", password: "host123",
   first_name: "Host", last_name: "Supreme")
 
 Spot.create(address: "22 W 38th St, New York, NY 10018", 
-  lng: -73.949749, lat: 40.708803,
+  lng: -73.983934, lat: 40.751452,
   title: "Sweet office space", price: 20,
   num_rooms: 4, num_guests: 8, 
   num_bathrooms: 2, host_id: User.last.id,
   spot_type: "Office", location: "New York")
 
 Spot.create(address: "22 W 42nd St, New York, NY 10036", 
-  lng: -73.997656, lat: 40.732697,
+  lng: -73.981809, lat: 40.753839,
   title: "Another office space", price: 20,
   num_rooms: 4, num_guests: 8, 
   num_bathrooms: 2, host_id: User.last.id,
   spot_type: "Office", location: "New York")
-
 
 Amenity.create(name: "Wifi")
 Amenity.create(name: "Kitchen")

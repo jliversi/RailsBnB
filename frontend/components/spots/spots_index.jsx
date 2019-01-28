@@ -1,5 +1,6 @@
 import React from 'react';
 import SpotsIndexItemContainer from './spots_index_item_container';
+import MapContainer from '../map/index_map_container';
 
 class SpotsIndex extends React.Component {
   constructor(props) {
@@ -22,6 +23,9 @@ class SpotsIndex extends React.Component {
         <p>Explore some of the best-reviewed homes in my seed file</p>
         <div className="spots-index-items-container">
           {indexItems}
+        </div>
+        <div className='index-map-container'>
+          <MapContainer />
         </div>
       </div>
     )
