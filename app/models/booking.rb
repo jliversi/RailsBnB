@@ -17,7 +17,7 @@
   # DAY/MONTH/YEAR
 
 class Booking < ApplicationRecord
-  validates :status, :start_date, :end_date, :spot_id, :user_id, presence: true
+  validates :status, :start_date, :end_date, :spot_id, :user_id, :num_guests, presence: true
 
   belongs_to :spot,
     class_name: "Spot",

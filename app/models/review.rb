@@ -12,9 +12,9 @@
 #
 
 class Review < ApplicationRecord
-  validates :body, :rating, :booking_id, :author_id, presence: true
-  validates :rating, numericality: { greater_than: 0, less_than: 6 }
-
+  validates :body, :booking_id, :author_id, presence: true
+  validates :accuracy, :communication, :cleanliness, :location, :check_in, :value, numericality: { greater_than: 0, less_than: 6 }
+  validates :accuracy, :communication, :cleanliness, :location, :check_in, :value, presence: true
   belongs_to :booking
   has_one :spot,
     through: :booking
@@ -22,7 +22,10 @@ class Review < ApplicationRecord
     class_name: "User",
     foreign_key: :author_id
 
-  
+  def average_rating
+    total = self.accuracy + self.communication + self.cleanliness + self.location + self.check_in + self.value
+    return total/6.0
+  end 
 
 
 end 

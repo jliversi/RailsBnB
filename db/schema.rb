@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_25_200600) do
+ActiveRecord::Schema.define(version: 2019_01_28_193553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2019_01_25_200600) do
     t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "sym"
   end
 
   create_table "bookings", force: :cascade do |t|
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_01_25_200600) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "num_guests"
     t.index ["spot_id"], name: "index_bookings_on_spot_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
@@ -40,12 +42,17 @@ ActiveRecord::Schema.define(version: 2019_01_25_200600) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "rating", null: false
     t.text "body", null: false
     t.integer "booking_id", null: false
     t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "accuracy"
+    t.integer "communication"
+    t.integer "cleanliness"
+    t.integer "location"
+    t.integer "check_in"
+    t.integer "value"
     t.index ["author_id"], name: "index_reviews_on_author_id"
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
@@ -65,6 +72,8 @@ ActiveRecord::Schema.define(version: 2019_01_25_200600) do
     t.datetime "updated_at", null: false
     t.string "location", null: false
     t.string "spot_type", null: false
+    t.text "rules"
+    t.integer "num_beds"
     t.index ["host_id"], name: "index_spots_on_host_id"
   end
 

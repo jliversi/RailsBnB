@@ -26,7 +26,6 @@ class Splash extends React.Component {
             <h2>I WILL BECOME A SEARCH BAR</h2>
           </div>
         </div>
-        <h1>Spots Index will go down here</h1>
       </>
     );
   }

@@ -17,7 +17,7 @@ const App = () => {
       <ProtectedRoute exact path="/index" component={SearchFilterButtons} /> 
       <Route exact path="/" component={SpotsIndexContainer}/> 
       <Route exact path="/index" component={SpotsIndexContainer}/>
-      <Route exact path="/spots/:spotId" component={SpotsShowContainer} />
+      <ProtectedRoute exact path="/spots/:spotId" component={SpotsShowContainer} />
     </div>
   )
 };

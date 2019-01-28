@@ -18,7 +18,7 @@
 #
 
 class Spot < ApplicationRecord 
-  validates :lng, :lat, :num_rooms, :num_guests, :num_bathrooms, :host_id, presence: true
+  validates :lng, :lat, :num_rooms, :num_guests, :num_bathrooms, :num_beds, :host_id, presence: true
   validates :title, :address, presence: true, uniqueness: true 
 
   has_many :bookings,
@@ -50,10 +50,61 @@ class Spot < ApplicationRecord
   def average_rating
     ratings = []
     self.reviews.each do |review|
-      ratings.push(review.rating)
+      ratings.push(review.average_rating)
     end 
     return (ratings.sum / ratings.length.to_f)
   end 
+
+  def avg_accuracy
+    ratings = []
+    self.reviews.each do |review|
+      ratings.push(review.accuracy)
+    end
+    return (ratings.sum / ratings.length.to_f)
+  end 
+
+  def avg_communication
+    ratings = []
+    self.reviews.each do |review|
+      ratings.push(review.communication)
+    end
+    return (ratings.sum / ratings.length.to_f)
+  end 
+
+  def avg_cleanliness
+    ratings = []
+    self.reviews.each do |review|
+      ratings.push(review.cleanliness)
+    end
+    return (ratings.sum / ratings.length.to_f)
+  end 
+
+  def avg_location
+    ratings = []
+    self.reviews.each do |review|
+      ratings.push(review.location)
+    end
+    return (ratings.sum / ratings.length.to_f)
+  end 
+
+  def avg_check_in
+    ratings = []
+    self.reviews.each do |review|
+      ratings.push(review.check_in)
+    end
+    return (ratings.sum / ratings.length.to_f)
+  end 
+
+  def avg_value
+    ratings = []
+    self.reviews.each do |review|
+      ratings.push(review.value)
+    end
+    return (ratings.sum / ratings.length.to_f)
+  end 
+
+
+
 
   
   

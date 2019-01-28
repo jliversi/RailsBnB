@@ -23,19 +23,35 @@ Spot.create(address: "22 W 38th St, New York, NY 10018",
   lng: -73.983934, lat: 40.751452,
   title: "Sweet office space", price: 20,
   num_rooms: 4, num_guests: 8, 
-  num_bathrooms: 2, host_id: User.last.id,
-  spot_type: "Office", location: "New York")
+  num_bathrooms: 2, num_beds: 2, 
+  host_id: User.last.id, spot_type: "Office", 
+  location: "New York", rules: "These are some seed rules",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+    iatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+    culpa qui officia deserunt mollit anim id est laborum.")
 
 Spot.create(address: "22 W 42nd St, New York, NY 10036", 
   lng: -73.981809, lat: 40.753839,
   title: "Another office space", price: 20,
   num_rooms: 4, num_guests: 8, 
-  num_bathrooms: 2, host_id: User.last.id,
-  spot_type: "Office", location: "New York")
+  num_bathrooms: 2, num_beds: 2, 
+  host_id: User.last.id, spot_type: "Office", 
+  location: "New York", rules: "These are some seed rules",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+    iatur. Excepteur sint occaecat cupidatat non proident, sunt in 
+    culpa qui officia deserunt mollit anim id est laborum.")
 
-Amenity.create(name: "Wifi")
-Amenity.create(name: "Kitchen")
-Amenity.create(name: "Coffee Maker")
+Amenity.create(name: "Wifi", sym: "&#x1F374")
+Amenity.create(name: "Kitchen", sym: "&#x1F373")
+Amenity.create(name: "Coffee Maker", sym: "&#x2615")
 
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[0].id, spot_id: Spot.first.id)
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[1].id, spot_id: Spot.first.id)
@@ -45,31 +61,46 @@ SpotsAmenitiesJoin.create(amenity_id: Amenity.all[1].id, spot_id: Spot.last.id)
 
 Booking.create(status: true, start_date: "12/11/2018", 
   end_date: "20/11/2018", spot_id: Spot.first.id,
-  user_id: User.first.id)
+  user_id: User.first.id, num_guests: 3)
 Booking.create(status: true, start_date: "12/12/2018", 
   end_date: "20/12/2018", spot_id: Spot.first.id,
-  user_id: User.first.id)
+  user_id: User.first.id, num_guests: 3)
 Booking.create(status: true, start_date: "12/12/2019", 
   end_date: "20/12/2019", spot_id: Spot.first.id,
-  user_id: User.first.id)
+  user_id: User.first.id, num_guests: 3)
 
 Booking.create(status: true, start_date: "12/11/2017", 
   end_date: "20/11/2017", spot_id: Spot.last.id,
-  user_id: User.first.id)
+  user_id: User.first.id, num_guests: 3)
 Booking.create(status: true, start_date: "12/12/2017", 
   end_date: "20/12/2017", spot_id: Spot.last.id,
-  user_id: User.first.id)
+  user_id: User.first.id, num_guests: 3)
 
-Review.create(rating: 4, body: "Great office, elevators were broken though",
-  booking_id: Booking.all[0].id, author_id: User.first.id)
-Review.create(rating: 5, body: "Perfect office, two working elevators!",
-  booking_id: Booking.all[1].id, author_id: User.first.id)
-Review.create(rating: 3, body: "It's an office",
-  booking_id: Booking.all[3].id, author_id: User.first.id)
-Review.create(rating: 5, body: "This is a seed review",
-  booking_id: Booking.all[4].id, author_id: User.first.id)
+Review.create(body: "Great office, elevators were broken though",
+  booking_id: Booking.all[0].id, author_id: User.first.id,
+  accuracy: 5, communication: 5, cleanliness: 1,
+  location: 3, check_in: 5, value: 2)
+Review.create(body: "Perfect office, two working elevators!",
+  booking_id: Booking.all[1].id, author_id: User.first.id,
+  accuracy: 5, communication: 3, cleanliness: 5,
+  location: 3, check_in: 3, value: 4)
+Review.create(body: "It's an office",
+  booking_id: Booking.all[3].id, author_id: User.first.id,
+  accuracy: 3, communication: 3, cleanliness: 3,
+  location: 1, check_in: 2, value: 4)
+Review.create(body: "This is a seed review",
+  booking_id: Booking.all[4].id, author_id: User.first.id,
+  accuracy: 5, communication: 4, cleanliness: 3,
+  location: 2, check_in: 3, value: 2)
 
 Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p1.jpg", spot_id: Spot.first.id)
 Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
 Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
   
