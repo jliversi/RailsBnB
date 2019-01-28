@@ -26,7 +26,7 @@ Spot.create(address: "22 W 38th St, New York, NY 10018",
   num_bathrooms: 2, num_beds: 2, 
   host_id: User.last.id, spot_type: "Office", 
   location: "New York", rules: "These are some seed rules",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  description: "I am a description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
     nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
@@ -41,7 +41,7 @@ Spot.create(address: "22 W 42nd St, New York, NY 10036",
   num_bathrooms: 2, num_beds: 2, 
   host_id: User.last.id, spot_type: "Office", 
   location: "New York", rules: "These are some seed rules",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+  description: "I am a description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
   sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
     nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in 
@@ -49,13 +49,15 @@ Spot.create(address: "22 W 42nd St, New York, NY 10036",
     iatur. Excepteur sint occaecat cupidatat non proident, sunt in 
     culpa qui officia deserunt mollit anim id est laborum.")
 
-Amenity.create(name: "Wifi", sym: "&#x1F374")
-Amenity.create(name: "Kitchen", sym: "&#x1F373")
-Amenity.create(name: "Coffee Maker", sym: "&#x2615")
+Amenity.create(name: "Wifi", sym: "wifi")
+Amenity.create(name: "Kitchen", sym: "kitchen")
+Amenity.create(name: "Coffee Maker", sym: "free_breakfast")
+Amenity.create(name: "Air Conditioning", sym: "ac_unit")
 
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[0].id, spot_id: Spot.first.id)
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[1].id, spot_id: Spot.first.id)
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[2].id, spot_id: Spot.first.id)
+SpotsAmenitiesJoin.create(amenity_id: Amenity.all[3].id, spot_id: Spot.first.id)
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[0].id, spot_id: Spot.last.id)
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[1].id, spot_id: Spot.last.id)
 

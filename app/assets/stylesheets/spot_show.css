@@ -1,68 +1,92 @@
-.show-photos-container {
-  height: 300px;
-  width: 100vw;
+.spot-show {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.spot-show-content {
+  width: 650px;
+}
+
+.booking-request-container {
+  width: 385px;
+  height: 100%;
+  position: sticky;
+  top: 30px;
+}
+
+.non-photos-show {
+  width: 1100px;
   display: flex;
+  margin: 0 auto;
+  margin-top: 25px;
+  justify-content: space-between;
 }
 
-.main-photo-container {
-  height: 300px;
-  width: 50vw;
-  overflow: hidden;
-  background-color: black;
+.spot-type {
+  color: #615131;
+  font-size: 12px;
+  font-weight: 800;
 }
 
-.main-photo {
-  height: 300px;
-  width: calc(50vw - 2px);
-  border: 1px solid grey;
-  object-fit: cover;
-  transition: opacity 0.5s, transform 0.5s;
+.basic-info-container h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #484848;
+  margin-bottom: 5px;
 }
 
+.spot-location {
+  font-size: 16px;
+  font-weight: 400;
+  color: #4d4d4d;
+  margin-bottom: 25px;
+}
 
-
-.sub-photos-container {
-  height: 300px;
+.num-details-container {
   display: flex;
-  width: 50vw;
+  width: 330px;
+  font-size: 16px;
+  font-weight: 500;
+  justify-content: space-between;
+  color: #484848;
+  margin-bottom: 35px;
+}
+
+.num-details-container i {
+  font-size: 18px;
+}
+
+.basic-info-container {
+  border-bottom: 1px solid #ebebeb;
+}
+
+.description-container {
+  font-size: 16px;
+  font-weight: 300;
+  border-bottom: 1px solid #ebebeb;
+  padding: 30px 0;
+  color: #484848;
+}
+
+.top-level-amenities-container {
+  color: #484848;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 30px 0;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.top-level-amenities-container h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.amenities-container {
+  display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
-  background-color: black;
 }
 
-.one-sub-photo {
-  overflow: hidden;
-  height: 148px;
-  width: calc(25vw - 2px);
-  border: 1px solid grey;
-}
-
-.sub-photos {
-  height: 148px;
-  width: calc(25vw - 2px);
-  border-right: none;
-  border-left: none;
-  object-fit: cover;
-  transition: transform 0.5s, opacity 0.5s;
-  
-}
-
-.main-photo-container:hover ~ .sub-photos-container .sub-photos {
-  opacity: 0.5;
-}
-
-.main-photo:hover {
-  transform: scale(1.2);
-}
-
-.sub-photos-container:hover ~ .main-photo-container .main-photo {
-  opacity: 0.5;
-}
-
-.sub-photos:hover {
-  transform: scale(1.2);
-}
-
-.sub-photos-container:hover ~ .main-photo-container {
-  opacity: 0.5;
+.amenities-container span {
+  width: 300px;
+  margin-bottom: 10px;
 }
