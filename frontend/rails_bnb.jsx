@@ -27,18 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
   ReactDom.render(<Root store={store} />, root);
 
   window.addEventListener("hashchange", () => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   });
-
-
-  // FOR TESTING 
-  window.store = store;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.fetchSpot = fetchSpot;
-  window.fetchSpots = fetchSpots;
-  window.moment = moment;
-  window.isSameDay = isSameDay;
 
 
 });

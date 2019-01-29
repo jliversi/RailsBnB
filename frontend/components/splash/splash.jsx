@@ -1,5 +1,6 @@
 import React from 'react';
 import ModalSessionForm from '../session/modal_session_container';
+import SplashSearch from '../search/splash_search';
 
 class Splash extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class Splash extends React.Component {
 
           <h1>Plan your next trip</h1>
           <div className="splash-search-container">
-            <h2>I WILL BECOME A SEARCH BAR</h2>
+            <SplashSearch />
           </div>
         </div>
       </>

@@ -90,5 +90,7 @@ button:focus {
   border-radius: 5px;
 }
 
+.revealed {display: block;}
 
-
+.hidden {display: none;}
+  
