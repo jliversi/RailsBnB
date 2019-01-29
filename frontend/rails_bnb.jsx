@@ -3,7 +3,9 @@ import ReactDom from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import { fetchSpot, fetchSpots } from './actions/spots_actions';
-
+import 'react-dates/initialize';
+import moment from 'moment';
+import { isSameDay } from 'react-dates';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,12 +26,19 @@ document.addEventListener("DOMContentLoaded", () => {
   
   ReactDom.render(<Root store={store} />, root);
 
+  window.addEventListener("hashchange", () => {
+    window.scrollTo(0,0);
+  });
+
+
   // FOR TESTING 
   window.store = store;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.fetchSpot = fetchSpot;
   window.fetchSpots = fetchSpots;
+  window.moment = moment;
+  window.isSameDay = isSameDay;
 
 
 });

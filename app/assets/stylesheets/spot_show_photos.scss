@@ -1,18 +1,19 @@
 .show-photos-container {
-  height: 300px;
+  height: 600px;
   width: 100vw;
   display: flex;
+  background-color: black;
 }
 
 .main-photo-container {
-  height: 300px;
+  height: 600px;
   width: 50vw;
   overflow: hidden;
   background-color: black;
 }
 
 .main-photo {
-  height: 300px;
+  height: 600px;
   width: calc(50vw - 2px);
   border: 1px solid grey;
   object-fit: cover;
@@ -20,7 +21,7 @@
 }
 
 .sub-photos-container {
-  height: 300px;
+  height: 600px;
   display: flex;
   width: 50vw;
   flex-wrap: wrap;
@@ -30,20 +31,22 @@
 
 .one-sub-photo {
   overflow: hidden;
-  height: 148px;
+  height: 298px;
   width: calc(25vw - 2px);
   border: 1px solid grey;
+  background-color: black;
 }
 
 .sub-photos {
-  height: 148px;
+  height: 298px;
   width: calc(25vw - 2px);
   border-right: none;
   border-left: none;
   object-fit: cover;
-  transition: transform 0.5s, opacity 0.5s;
-  
+  transition: transform 0.5s, opacity 0.5s; 
 }
+
+
 
 .main-photo-container:hover ~ .sub-photos-container .sub-photos {
   opacity: 0.5;
@@ -51,16 +54,18 @@
 
 .main-photo:hover {
   transform: scale(1.2);
-}
-
-.sub-photos-container:hover ~ .main-photo-container .main-photo {
-  opacity: 0.5;
+  opacity: 1 !important;
 }
 
 .sub-photos:hover {
   transform: scale(1.2);
+  opacity: 1 !important;
 }
 
-.sub-photos-container:hover ~ .main-photo-container {
+.show-photos-container:hover .sub-photos {
   opacity: 0.5;
+}
+
+.show-photos-container:hover .main-photo {
+  opacity: 0.5
 }

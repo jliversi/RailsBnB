@@ -67,8 +67,8 @@ Booking.create(status: true, start_date: "12/11/2018",
 Booking.create(status: true, start_date: "12/12/2018", 
   end_date: "20/12/2018", spot_id: Spot.first.id,
   user_id: User.first.id, num_guests: 3)
-Booking.create(status: true, start_date: "12/12/2019", 
-  end_date: "20/12/2019", spot_id: Spot.first.id,
+Booking.create(status: true, start_date: "12/2/2019", 
+  end_date: "20/2/2019", spot_id: Spot.first.id,
   user_id: User.first.id, num_guests: 3)
 
 Booking.create(status: true, start_date: "12/11/2017", 

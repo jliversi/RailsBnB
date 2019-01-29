@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { RECEIVE_SPOT } from '../../actions/spots_actions';
+import { RECEIVE_SPOT, RECEIVE_SPOTS } from '../../actions/spots_actions';
 
 
 const bookingsReducer = (state = {}, action) => {
@@ -7,6 +7,8 @@ const bookingsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_SPOT:
       return merge({}, state, action.spot.bookings);
+    case RECEIVE_SPOTS:
+      return action.spots.bookings;
     default:
       return state;
   }

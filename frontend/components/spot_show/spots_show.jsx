@@ -2,6 +2,7 @@ import React from 'react';
 import ShowMapContainer from '../map/show_map_container';
 import ShowPhotosContainer from './show_photos_container';
 import ShowReviewsContainer from '../reviews/show_reviews_container';
+import ShowCalendarContainer from '../calendar/show_calendar_container';
 
 class SpotsShow extends React.Component {
   constructor(props) {
@@ -53,10 +54,14 @@ class SpotsShow extends React.Component {
               </div>
             </div>
 
-
-            <p>Availability: Time to figure out that calendar.....</p>
+            <div className="availability-container">
+              <h3>Availability</h3>
+              <ShowCalendarContainer />
+            </div>
             <p>Reviews</p>
             <ShowReviewsContainer spot={spot} reviews={reviews} />
+
+            
             <p>Host Info</p>
             <h1>The neighborhood</h1>
             <ShowMapContainer />
