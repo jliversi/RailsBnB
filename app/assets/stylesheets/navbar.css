@@ -3,6 +3,8 @@
   justify-content: space-between;
   padding: 30px 20px 10px 20px;
   border-bottom: 1px solid #e4e4e4;
+  height: 90px;
+  box-sizing: border-box;
 }
 
 
@@ -21,19 +23,21 @@
   display: flex;
 }
 
-.nav-bar-buttons i {
-  background-color: rgb(255, 90, 95);
-  color: white;
+.nav-bar-buttons img {
+  background-color: lightgray;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
-  font-size: 20px;
-  padding: 3px 8px;
 }
 
 .nav-bar-buttons:hover {
   border-bottom: 2px solid #495966;
 }
 
-.nav-bar-buttons {position: relative}
+.nav-bar-buttons {
+  position: relative;
+  box-sizing: border-box;
+}
 
 .nav-bar-buttons .hidden {
   display: none;

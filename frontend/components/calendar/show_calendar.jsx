@@ -27,6 +27,7 @@ class ShowCalendar extends React.Component {
     const today = moment();
     const startDateString = this.state.startDate ? this.state.startDate.format('ddd, MMM Do') : null;
     const endDateString = this.state.endDate ? this.state.endDate.format('ddd, MMM Do') : null;
+    
     return (
       <div className="date-picker-wrapper">
         <DayPickerRangeController

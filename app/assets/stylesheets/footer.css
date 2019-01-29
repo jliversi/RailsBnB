@@ -1,0 +1,39 @@
+.app-footer {
+  margin-top: 20px;
+  border-top: 1px solid #ebebeb;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #767676;
+  padding: 20px 0;
+  width: 100vw;
+}
+
+.footer-wrapper {
+  display: flex;
+  width: 1150px;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #767676;
+  font-weight: 400;
+}
+
+.footer-links a:visited  {
+  text-decoration: none;
+  color: #767676;
+}
+
+.footer-logo {
+  font-family: 'Sacramento', cursive;
+  font-size: 24px;
+  color: #767676;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
+}

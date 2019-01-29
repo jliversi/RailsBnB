@@ -1,3 +1,20 @@
+monthsArr = [
+  nil,
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+]
+
+
 json.spot do
   json.set! @spot.id do 
     json.partial! "api/spots/spot", spot: @spot
@@ -19,6 +36,12 @@ json.spot do
     json.avg_location @spot.avg_location
     json.avg_check_in @spot.avg_check_in
     json.avg_value @spot.avg_value
+    json.host do
+      json.extract! @spot.host, :id, :first_name, :last_name, :bio
+      json.join_month monthsArr[@spot.host.created_at.month]
+      json.join_year @spot.host.created_at.year
+      json.num_reviews @spot.host.num_reviews
+    end
   end
 end
 
@@ -26,6 +49,9 @@ json.reviews do
   @spot.reviews.each do |review|
     json.set! review.id do
       json.extract! review, :id, :accuracy, :communication, :cleanliness, :location, :check_in, :value, :body, :author_id, :booking_id 
+      json.author_name review.author.first_name
+      json.month monthsArr[review.booking.end_date.month]
+      json.year review.booking.end_date.year
     end
   end 
 end 
@@ -46,10 +72,6 @@ json.amenities do
   end 
 end
 
-json.host do
-  json.extract! @spot.host, :id, :first_name, :last_name, :bio
-end
-
 json.photos do
   @spot.photos.each do |photo|
     json.set! photo.id do
@@ -58,7 +80,12 @@ json.photos do
   end 
 end 
 
-
+json.host do
+  json.extract! @spot.host, :id, :first_name, :last_name, :bio
+  json.join_month monthsArr[@spot.host.created_at.month]
+  json.join_year @spot.host.created_at.year
+  json.num_reviews @spot.host.num_reviews
+end
 
 
 

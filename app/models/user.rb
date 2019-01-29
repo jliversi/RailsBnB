@@ -68,6 +68,12 @@ class User < ApplicationRecord
     return self.session_token
   end
 
+  def num_reviews
+    num_reviews = 0
+    self.spots.each {|spot| num_reviews += spot.reviews.count}
+    return num_reviews
+  end
+
 
 end
 

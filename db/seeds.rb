@@ -17,7 +17,9 @@ Photo.destroy_all
 User.create(email: "demo@demo.com", password: "demo123", 
   first_name: "Demo", last_name: "Demo")
 User.create(email: "host@host.com", password: "host123", 
-  first_name: "Host", last_name: "Supreme")
+  first_name: "Host", last_name: "Supreme",
+  bio: "Hi, my name is Host Supreme and I host every spot in this seed file.
+  Thanks so much for considering my many spots for your stay.")
 
 Spot.create(address: "22 W 38th St, New York, NY 10018", 
   lng: -73.983934, lat: 40.751452,

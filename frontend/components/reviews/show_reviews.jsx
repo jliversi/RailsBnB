@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewListItem from './review_list_item';
 
 
 class ShowReviews extends React.Component {
@@ -11,7 +12,9 @@ class ShowReviews extends React.Component {
   render() {
     const spot = this.props.spot;
     const reviews = this.props.reviews;
-
+    const reviewItems = reviews.map((review, idx) => {
+      return <ReviewListItem review={review} key={idx} />
+    });
     const mainFactor = Math.floor((spot.avg_rating / 5.0) * 113) + "px";
     const accFactor = Math.floor((spot.avg_accuracy / 5.0) * 113) + "px";
     const chkFactor = Math.floor((spot.avg_check_in / 5.0) * 113) + "px";
@@ -29,9 +32,9 @@ class ShowReviews extends React.Component {
     const stars = "https://s3.amazonaws.com/railsbnb-pub/spot_show_review_stars.jpg";
     
     return (
-      <div>
+      <div className="ratings-container">
         <div className='main-rating-details'>
-          <span>{reviews.length} Reviews</span>
+          <span>{reviews.length} Reviews &nbsp;&nbsp;&nbsp;</span>
           <div style={mainStyle}>
             <img src={stars} alt="avg-rating" />
           </div>
@@ -40,40 +43,52 @@ class ShowReviews extends React.Component {
           <div className="three-ratings">
             <div className="one-rating">
               <span>Accuracy</span>
-              <div style={accStyle}>
-                <img src={stars} alt="acc-rating" />
+              <div style={{ width: "113px" }}>
+                <div style={accStyle}>
+                  <img src={stars} alt="acc-rating" />
+                </div>
               </div>
             </div>
             <div className="one-rating">
               <span>Communication</span>
-              <div style={comStyle}>
-                <img src={stars} alt="com-rating" />
+              <div style={{width: "113px"}}>
+                <div style={comStyle}>
+                  <img src={stars} alt="com-rating" />
+                </div>
               </div>
             </div>
             <div className="one-rating">
               <span>Cleanliness</span>
-              <div style={clnStyle} >
-                <img src={stars} alt="cln-rating" />
+              <div style={{ width: "113px" }}>
+                <div style={clnStyle} >
+                  <img src={stars} alt="cln-rating" />
+                </div>
               </div>
             </div>
           </div>
           <div className="three-ratings">
             <div className="one-rating">
               <span>Location</span>
-              <div style={locStyle} >
-                <img src={stars} alt="loc-rating" />
+              <div style={{ width: "113px" }}>
+                <div style={locStyle} >
+                  <img src={stars} alt="loc-rating" />
+                </div>
               </div>
             </div>
             <div className="one-rating">
               <span>Check-in</span>
-              <div style={chkStyle} >
-                <img src={stars} alt="chk-rating" />
+              <div style={{ width: "113px" }}>
+                <div style={chkStyle} >
+                  <img src={stars} alt="chk-rating" />
+                </div>
               </div>
             </div>
             <div className="one-rating">
               <span>Value</span>
-              <div style={valStyle}>
-                <img src={stars} alt="val-rating" />
+              <div style={{ width: "113px" }}>
+                <div style={valStyle}>
+                  <img src={stars} alt="val-rating" />
+                </div>
               </div>
             </div>
           </div>
@@ -82,21 +97,7 @@ class ShowReviews extends React.Component {
 
 
         <ul>
-          <li>{reviews.length} Reviews</li>
-          <li>Reviews details
-            <ul>
-              <li>Accuracy</li>
-              <li>Communication</li>
-              <li>Cleanliness</li>
-              <li>Location</li>
-              <li>Check-in</li>
-              <li>Value</li>
-              <li>Search Reviews?!</li>
-            </ul>
-          </li>
-          <li>Review 1</li>
-          <li>Review 2</li>
-          <li>Review 3</li>
+          {reviewItems}
         </ul>
       </div>
 

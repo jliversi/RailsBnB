@@ -11,7 +11,7 @@ class ShowMap extends React.Component {
     const map = ReactDOM.findDOMNode(this.refs.map);
     const options = {
       center: this.props.mapCenter,
-      zoom: 13
+      zoom: 15
     };
     this.map = new google.maps.Map(map, options);
 

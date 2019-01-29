@@ -33,7 +33,7 @@ class NavBar extends React.Component {
             <p>Search Bar Goes Here</p>
           </div>
           <div onClick={this.reveal} className='nav-bar-buttons'>
-            <i>{this.props.user ? this.props.user.first_name[0] : ""}</i>
+            <img src="assets/rails_bnb.ico" alt="user-logo" />
             <div onClick={this.stopProp} className={this.state.dropdownActive ? "revealed" : "hidden"}>
               <ul>
                 <button onClick={this.props.logout}>Logout</button>

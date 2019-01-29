@@ -23,12 +23,12 @@ class SpotsShow extends React.Component {
     const amenitiesEls = amenities.map((amenity, idx) => (
       <span className="one-amenity" key={idx}><i className='material-icons'>{amenity.sym}</i> {amenity.name}</span>
     ));
+    const host = spot.host ? spot.host : {};
     const reviews = this.props.reviews ? this.props.reviews : [];
     const spotType = spot.spot_type ? spot.spot_type.toUpperCase() : null;
+
     return (
       <div className="spot-show">
-        <p>BOOKING REQUEST FORM ON RIGHT SIDE ALL TIMES</p>
-        <p>Modal for photos</p>
         <ShowPhotosContainer photos={this.props.photos} />
         <div className="non-photos-show">
           <div className="spot-show-content">
@@ -58,13 +58,19 @@ class SpotsShow extends React.Component {
               <h3>Availability</h3>
               <ShowCalendarContainer />
             </div>
-            <p>Reviews</p>
             <ShowReviewsContainer spot={spot} reviews={reviews} />
-
-            
-            <p>Host Info</p>
-            <h1>The neighborhood</h1>
-            <ShowMapContainer />
+            <div className="host-info">
+              <img src="assets/rails_bnb.ico" alt="" />
+              <h1>Hosted by {host.first_name}</h1>
+              <span>New York,New York,United States · Joined in {host.join_month}&nbsp;{host.join_year}</span>
+              <p><br/></p>
+              <span><i className="material-icons">star_rate</i>{host.num_reviews} reviews</span>
+              <article>{host.bio}</article>
+            </div>
+            <div className="show-neighborhood-container">
+              <h1>The neighborhood</h1>
+              <ShowMapContainer />
+            </div>
           </div>
           <div className="booking-request-container">
             <p>THIS WILL BECOME THE BOOKING REQUEST BOX. 
