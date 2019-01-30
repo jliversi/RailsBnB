@@ -5,6 +5,7 @@ import photosReducer from './entities/photos_reducer';
 import bookingsReducer from './entities/bookings_reducer';
 import amenitiesReducer from './entities/amenities_reducer';
 import reviewsReducer from './entities/reviews_reducer';
+import indexReducer from './entities/index_reducer';
 
 export default combineReducers({
   users: usersReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   photos: photosReducer,
   bookings: bookingsReducer,
   amenities: amenitiesReducer,
-  reviews: reviewsReducer
+  reviews: reviewsReducer,
+  indexItems: indexReducer
 });

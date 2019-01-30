@@ -4,7 +4,7 @@ import { fetchSpots } from "../../actions/spots_actions";
 
 const msp = (state, ownProps) => {
   return {
-    spots: state.entities.spots,
+    spots: state.entities.indexItems.map(id => state.entities.spots[id]),
     photos: state.entities.photos
   };
 };

@@ -1,4 +1,4 @@
-.modal-overlay {
+.session-modal-overlay {
   position: fixed; 
   top: 0px; 
   left: 0px; 
@@ -7,7 +7,7 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-content-login {
+.session-modal-content-login {
   height: auto;
   position: absolute; 
   max-height: 485px;
@@ -25,7 +25,7 @@
   box-sizing: border-box;
 }
 
-.modal-content-signup {
+.session-modal-content-signup {
   height: auto;
   max-height: 700px;
   position: absolute; 

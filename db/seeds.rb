@@ -14,6 +14,14 @@ Review.destroy_all
 SpotsAmenitiesJoin.destroy_all 
 Photo.destroy_all
 
+captionsArr = [
+  "I am a photo",
+  "I am another photo",
+  "This is the caption for a photo",
+  "This is also a caption",
+  "Look at this photo!"
+]
+
 User.create(email: "demo@demo.com", password: "demo123", 
   first_name: "Demo", last_name: "Demo")
 User.create(email: "host@host.com", password: "host123", 
@@ -97,14 +105,14 @@ Review.create(body: "This is a seed review",
   accuracy: 5, communication: 4, cleanliness: 3,
   location: 2, check_in: 3, value: 2)
 
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p1.jpg", spot_id: Spot.first.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p1.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
+Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
   

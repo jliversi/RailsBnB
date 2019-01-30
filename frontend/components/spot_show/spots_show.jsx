@@ -3,6 +3,7 @@ import ShowMapContainer from '../map/show_map_container';
 import ShowPhotosContainer from './show_photos_container';
 import ShowReviewsContainer from '../reviews/show_reviews_container';
 import ShowCalendarContainer from '../calendar/show_calendar_container';
+import BookingFormContainer from './booking_form_container';
 
 class SpotsShow extends React.Component {
   constructor(props) {
@@ -73,19 +74,7 @@ class SpotsShow extends React.Component {
             </div>
           </div>
           <div className="booking-request-container">
-            <p>THIS WILL BECOME THE BOOKING REQUEST BOX. 
-              Quisque blandit nec urna sed dictum. Nullam eget maximus lectus, 
-              ed egestas nibh. Praesent auctor magna eget placerat hendrerit. 
-              Cras lobortis accumsan nisl, bibendum consequat odio vestibulum 
-              sed. Proin feugiat, nulla et lacinia pellentesque, diam augue 
-              elementum justo, vitae eleifend ipsum nisi ut lorem. Morbi vitae 
-              apien non nunc aliquet venenatis ut vitae diam. Sed ut dapibus nisl.
-              ongue aliquam fringilla. Donec eu mollis ante, at ultrices turpis. 
-              Sed a ultrices orci, vel elementum massa. Quisque lobortis egestas 
-              velit sit amet dignissim. Vestibulum posuere interdum nisl. Proin
-              eget posuere quam. Sed sodales diam neque, scelerisque vehicula 
-              felis porta id. Suspendisse odio ante, accumsan vel felis vitae, 
-              rutrum elementum ante. Vivamus non dapibus purus.</p>
+            <BookingFormContainer spot={spot} />
           </div>
         </div>
       </div>
@@ -94,3 +83,4 @@ class SpotsShow extends React.Component {
 }
 
 export default SpotsShow;
+

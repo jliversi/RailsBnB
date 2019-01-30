@@ -69,3 +69,68 @@
 .show-photos-container:hover .main-photo {
   opacity: 0.5
 }
+
+.photos-modal-overlay {
+  position: fixed; 
+  top: 0px; 
+  left: 0px; 
+  right: 0px; 
+  bottom: 0px; 
+  background-color: rgba(38, 38, 38, 1);
+}
+
+.photos-modal-content {
+  position: relative;
+  width: 700px;
+  margin: 0 auto;
+  margin-top: 90px;
+}
+
+.modal-photo {
+  width: 700px;
+  height: 500px;
+}
+
+.photos-modal-content:focus {
+  outline: none;  
+}
+
+.photos-x-button {
+  position: fixed;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 70px;
+  top: 5px;
+  right: 20px;
+  font-weight: 100;
+}
+
+.prev-photo {
+  position: fixed;
+  color: white;
+  background: none;
+  font-size: 100px;
+  border: none;
+  top: 280px;
+  left: 50px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.next-photo {
+  position: fixed;
+  color: white;
+  background: none;
+  font-size: 100px;
+  border: none;
+  top: 280px;
+  right: 50px;
+  font-family: 'Comfortaa', cursive;
+}
+
+.modal-caption {
+  color: white;
+  position: relative;
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 200;
+}

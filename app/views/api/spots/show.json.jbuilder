@@ -75,7 +75,7 @@ end
 json.photos do
   @spot.photos.each do |photo|
     json.set! photo.id do
-      json.extract! photo, :id, :url
+      json.extract! photo, :id, :url, :caption
     end 
   end 
 end 

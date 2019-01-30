@@ -1,10 +1,6 @@
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
+import BookingForm from "./booking_form";
 import moment from 'moment';
-import ShowCalendar from './show_calendar';
-import { withRouter } from 'react-router-dom';
-
-
-
 const msp = (state, ownProps) => {
   const createRangeArray = (startDate, stopDate) => {
     const rangeArray = [];
@@ -16,13 +12,22 @@ const msp = (state, ownProps) => {
     }
     return rangeArray;
   };
-  const spot = state.entities.spots[ownProps.match.params.spotId] ? state.entities.spots[ownProps.match.params.spotId] : {bookings: []};
-  const bookedDates = spot.bookings.map(bookId => {
+
+  const spot = ownProps.spot;
+  const spotBookings = spot.bookings ? spot.bookings : [];
+  const bookedDates = spotBookings.map(bookId => {
     return createRangeArray(state.entities.bookings[bookId].start_date, state.entities.bookings[bookId].end_date);
   }).flat();
+
   return {
+    spot,
     bookedDates
   };
 };
 
-export default withRouter(connect(msp)(ShowCalendar));
+const mdp = dispatch => {
+  return {};
+};
+
+
+export default connect(msp, mdp)(BookingForm)

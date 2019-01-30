@@ -34,9 +34,10 @@ class NavBar extends React.Component {
           </div>
           <div onClick={this.reveal} className='nav-bar-buttons'>
             <img src="assets/rails_bnb.ico" alt="user-logo" />
-            <div onClick={this.stopProp} className={this.state.dropdownActive ? "revealed" : "hidden"}>
+            <div onClick={this.stopProp} className={this.state.dropdownActive ? "account-buttons revealed" : "account-buttons hidden"}>
               <ul>
                 <button onClick={this.props.logout}>Logout</button>
+                <button>My Account</button>
               </ul>
             </div>
           </div>

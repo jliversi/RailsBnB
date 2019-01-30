@@ -60,3 +60,17 @@
   width: 500px;
   height: 500px;
 };
+
+.index-rating-stars-container {
+  display: flex;
+}
+
+.can-i-select-you {
+  display: flex;
+}
+
+.index-rating-stars-container span {
+  font-size: 12px;
+  color: rgb(72, 72, 72);
+  margin-left: 6px;
+}

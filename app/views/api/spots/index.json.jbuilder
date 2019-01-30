@@ -11,6 +11,7 @@ json.spots do
         json.array! spot.bookings.map {|booking| booking.id}
       end
       json.avg_rating spot.average_rating
+      json.num_reviews spot.reviews.count
     end
   end
 end
@@ -19,7 +20,7 @@ json.photos do
   @spots.each do |spot|
     spot.photos.each do |photo|
       json.set! photo.id do 
-        json.extract! photo, :id, :url, :spot_id
+        json.extract! photo, :id, :url, :spot_id, :caption
       end
     end
   end
@@ -34,3 +35,7 @@ json.bookings do
     end
   end
 end 
+
+json.indexItems do
+  json.array! @spots.map {|spot| spot.id }
+end

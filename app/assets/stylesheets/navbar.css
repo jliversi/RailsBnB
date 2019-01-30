@@ -51,10 +51,11 @@
   width: 200px;
   background-color: white;
   padding: 10px;
-  box-shadow: 2px 2px #ebebeb;
+  box-shadow: 1px 1px #ebebeb;
+  z-index: 3;
 }
 
-.revealed button {
+.account-buttons button {
   border: none;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #767676;
@@ -64,8 +65,9 @@
   box-sizing: border-box;
   width: 175px;
   text-align: left;
+  margin-bottom: 5px;
 }
 
-.revealed button:hover {
+.account-buttons button:hover {
   border-bottom: 1px solid black;
 }

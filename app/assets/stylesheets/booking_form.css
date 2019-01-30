@@ -1,0 +1,86 @@
+.booking-request-container  {
+  width: 380px;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ebebeb;
+  height: 100%;
+  color: rgb(72, 72, 72);
+  display: flex;
+  flex-direction: column;
+
+}
+
+.booking-request h1 {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.booking-request h1 > span {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.booking-rating-stars-container {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ebebeb;
+  display: flex;
+}
+
+.booking-rating-stars-container span {
+  margin-left: 6px;
+  font-size: 12px;
+}
+
+.submit-booking-form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+
+.submit-booking-form label {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.submit-booking-form button {
+  background-color: rgb(255, 90, 95);
+  padding: 14px 22px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.booking-dates {
+  position: relative;
+}
+
+.booking-dates span {
+  font-size: 20px;
+  position: absolute;
+  left: 135px;
+  top: 13px;
+}
+
+.submit-booking-form input {
+  padding: 10px;
+  font-size: 16px;
+  width: 165px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.submit-booking-form input:first {
+  border-right: none;
+}
+
+.booking-dates {
+  display: flex;
+}

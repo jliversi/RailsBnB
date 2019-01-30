@@ -8,21 +8,49 @@ class SplashSearch extends React.Component {
     this.state = {
       startDate: null,
       endDate: null,
-      focusedInput: null,
+      focusedInput: 'startDate',
       numGuests: 1,
       calendarActive: false,
       guestsActive: false
     }
     this.openCalendar = this.openCalendar.bind(this);
     this.openGuests = this.openGuests.bind(this);
+    this.closeCalendar = this.closeCalendar.bind(this);
+    this.subtractGuest = this.subtractGuest.bind(this);
+    this.addGuest = this.addGuest.bind(this);
+    this.closeGuests = this.closeGuests.bind(this);
+    this.changeListener = this.changeListener.bind(this);
   }
 
   openCalendar() {
     this.setState({calendarActive: !this.state.calendarActive, guestsActive: false});
   }
+  closeCalendar() {
+    this.setState({calendarActive: false});
+  }
 
   openGuests() {
-    this.setState({guestsActive: !this.state.guestsActive, calendarActive: false});
+    this.setState({guestsActive: !this.state.guestsActive, calendarActive: false}, () => this.changeListener());
+  }
+
+  closeGuests() {
+    this.setState({guestsActive: false}, () => this.changeListener());
+  }
+
+  subtractGuest() {
+    this.setState({numGuests: (this.state.numGuests - 1)});
+  }
+
+  addGuest() {
+    this.setState({numGuests: (this.state.numGuests + 1)});
+  }
+
+  changeListener() {
+    if (!this.state.guestsActive) {
+      document.removeEventListener('click', this.closeGuests);
+    } else {
+      document.addEventListener('click', this.closeGuests);
+    }
   }
 
 
@@ -69,25 +97,27 @@ class SplashSearch extends React.Component {
           <button>Search</button>
         </form>
         <div className={this.state.calendarActive ? "revealed splash-search-calendar" : "hidden splash-search-calendar"}>
-          <p>Will I show UP?</p>
-          
+        
           <DayPickerRangeController
-            onOutsideClick={DayPickerRangeController.onOutsideClick}
+            startDate={this.state.startDate}
+            noBorder={true}
+            endDate={this.state.endDate}
+            isOutsideRange={day => isInclusivelyAfterDay(today, day)}
+            enableOutsideDays={false}
+            numberOfMonths={2}
+            onOutsideClick={this.closeCalendar}
             onPrevMonthClick={DayPickerRangeController.onPrevMonthClick}
             onNextMonthClick={DayPickerRangeController.onNextMonthClick}
-            noBorder={true}
-            startDate={this.state.startDate}
-            endDate={this.state.endDate}
             onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
             focusedInput={this.state.focusedInput}
-            onFocusChange={focusedInput => this.setState({ focusedInput })}
-            numberOfMonths={2}
-            isOutsideRange={day => isInclusivelyAfterDay(today, day)}
-            hideKeyboardShortcutsPanel
+            onFocusChange={(focusedInput) => this.setState({ focusedInput: focusedInput })}
           />
         </div>
         <div className={this.state.guestsActive ? "revealed splash-search-guests" : "hidden splash-search-guests"}>
-          <p>I AM THE GUEST PICKER</p>
+          <h3>Guests</h3>
+          <button className={(this.state.numGuests > 1) ? "revealed" : "hidden"} onClick={this.subtractGuest}>-</button>
+          <span>{this.state.numGuests}</span>
+          <button onClick={this.addGuest}>+</button>
         </div>
       </div>
     )
@@ -98,3 +128,21 @@ export default SplashSearch;
 
 
 
+
+
+// <DayPickerRangeController
+//   onOutsideClick={DayPickerRangeController.onOutsideClick}
+//   onPrevMonthClick={DayPickerRangeController.onPrevMonthClick}
+//   onNextMonthClick={DayPickerRangeController.onNextMonthClick}
+//   noBorder={true}
+//   startDate={this.state.startDate}
+//   endDate={this.state.endDate}
+//   onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+//   focusedInput={this.state.focusedInput}
+//   onFocusChange={focusedInput => this.setState({ focusedInput })}
+//   numberOfMonths={2}
+//   enableOutsideDays={false}
+//   isOutsideRange={day => isInclusivelyAfterDay(today, day)}
+//   hideKeyboardShortcutsPanel
+//   hidden={false}
+// />

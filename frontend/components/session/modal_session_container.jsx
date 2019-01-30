@@ -53,8 +53,8 @@ class ModalSessionForm extends React.Component {
         <ReactModal 
           ariaHideApp={false} 
           isOpen={this.state.showModalLogin}
-          className="modal-content-login"
-          overlayClassName="modal-overlay"
+          className="session-modal-content-login"
+          overlayClassName="session-modal-overlay"
           shouldCloseOnOverlayClick={true}
           onRequestClose={this.handleCloseModalLogin}
         >
@@ -76,8 +76,8 @@ class ModalSessionForm extends React.Component {
         <ReactModal 
           ariaHideApp={false} 
           isOpen={this.state.showModalSignup}
-          className="modal-content-signup"
-          overlayClassName="modal-overlay"
+          className="session-modal-content-signup"
+          overlayClassName="session-modal-overlay"
           shouldCloseOnOverlayClick={true}
           onRequestClose={this.handleCloseModalSignup}
         >

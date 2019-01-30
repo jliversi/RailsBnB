@@ -31,8 +31,13 @@ class SpotsIndexItem extends React.Component {
           <span className="index-type">{spot.spot_type.toUpperCase()} &middot; {spot.location.toUpperCase()}</span>
           <h1>{spot.title}</h1>
           <p className="index-price">${spot.price} per night</p>
-          <div style={ratingsStyle}>
-            <img src="https://s3.amazonaws.com/railsbnb-pub/rating_stars.png" alt="rating-stars"/>
+          <div className="index-rating-stars-container">
+            <div className="can-i-select-you">
+              <div style={ratingsStyle}>
+                <img src="https://s3.amazonaws.com/railsbnb-pub/rating_stars.png" alt="rating-stars"/>
+              </div>
+              <span>{spot.num_reviews}</span>
+            </div>
           </div>
         </Link>
       </div>
