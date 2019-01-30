@@ -105,14 +105,25 @@ Review.create(body: "This is a seed review",
   accuracy: 5, communication: 4, cleanliness: 3,
   location: 2, check_in: 3, value: 2)
 
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p1.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg", spot_id: Spot.first.id, caption: captionsArr.sample)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
-Photo.create(url: "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg", spot_id: Spot.last.id, caption: captionsArr.sample)
+urlsArr = [
+  "https://s3.amazonaws.com/railsbnb-pub/spot1_p1.jpg",
+  "https://s3.amazonaws.com/railsbnb-pub/spot1_p2.jpg",
+  "https://s3.amazonaws.com/railsbnb-pub/spot1_p3.jpg",
+  "https://s3.amazonaws.com/railsbnb-pub/spot1_p4.jpg",
+  "https://s3.amazonaws.com/railsbnb-pub/spot1_p5.jpg"
+]
+
+urlsArr2 = urlsArr.rotate(1)
+
+Photo.create(url: urlsArr[0], spot_id: Spot.first.id, caption: captionsArr.sample)
+Photo.create(url: urlsArr[1], spot_id: Spot.first.id, caption: captionsArr.sample)
+Photo.create(url: urlsArr[2], spot_id: Spot.first.id, caption: captionsArr.sample)
+Photo.create(url: urlsArr[3], spot_id: Spot.first.id, caption: captionsArr.sample)
+Photo.create(url: urlsArr[4], spot_id: Spot.first.id, caption: captionsArr.sample)
+
+Photo.create(url: urlsArr2[0], spot_id: Spot.last.id, caption: captionsArr.sample)
+Photo.create(url: urlsArr2[1], spot_id: Spot.last.id, caption: captionsArr.sample)
+Photo.create(url: urlsArr2[2], spot_id: Spot.last.id, caption: captionsArr.sample)
+Photo.create(url: urlsArr2[3], spot_id: Spot.last.id, caption: captionsArr.sample)
+Photo.create(url: urlsArr2[4], spot_id: Spot.last.id, caption: captionsArr.sample)
   
