@@ -7,18 +7,19 @@ import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => {
   let mapCenter;
-  let spots;
-  if (Object.keys(state.entities.spots).length >= 1) {
-    let firstSpot = Object.values(state.entities.spots)[0];
+  let mapSpots;
+  const { spots, indexItems } = state.entities;
+  if (indexItems.length >= 1) {
+    let firstSpot = spots[indexItems[0]];
     mapCenter = {lat: firstSpot.lat, lng: firstSpot.lng};
-    spots = Object.values(state.entities.spots);
+    mapSpots = indexItems.map(id => spots[id]);
   } else {
     mapCenter = {};
-    spots = [];
+    mapSpots = [];
   }
   return {
     mapCenter,
-    spots
+    spots: mapSpots
   };
 };
 

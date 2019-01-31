@@ -15,6 +15,7 @@
   text-decoration: none;
   color: rgb(255, 90, 95);
   margin-right: 25px;
+  cursor: pointer;
 }
 
 .nav-logo:visited{ color: rgb(255, 90, 95) }

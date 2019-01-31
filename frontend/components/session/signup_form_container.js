@@ -11,7 +11,8 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
   return {
     submit: (user) => dispatch(signup(user)),
-    clearErrors: () => dispatch(clearSessionErrors())
+    clearErrors: () => dispatch(clearSessionErrors()),
+    fetchSpots: () => dispatch(fetchSpots({}))
   };
 };
 

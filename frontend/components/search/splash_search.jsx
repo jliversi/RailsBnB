@@ -75,15 +75,19 @@ class SplashSearch extends React.Component {
       [field]: e.currentTarget.value
     });
   }
+  
   handleSubmit(e) {
     e.preventDefault();
-    const params = {
-      location: this.state.location,
-      startDate: this.state.startDate.format(),
-      endDate: this.state.endDate.format(),
-      numGuests: this.state.numGuests
+    const { startDate, endDate, location } = this.state; 
+    if (startDate && endDate && (location.length > 0)) {
+      const params = {
+        location: this.state.location,
+        startDate: this.state.startDate.format(),
+        endDate: this.state.endDate.format(),
+        numGuests: this.state.numGuests
+      }
+      this.props.fetchSpots(params).then(this.props.history.push('/index'));
     }
-    this.props.fetchSpots(params).then(this.props.history.push('/index'));
   }
 
 

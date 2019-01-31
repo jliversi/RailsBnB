@@ -24,12 +24,14 @@ class LoginForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submit(this.state);
+    this.props.submit(this.state)
+      .then(this.props.fetchSpots);;
   }
 
   demoLogin(e) {
     e.preventDefault();
-    this.props.submit({email: "demo@demo.com", password: "demo123"});
+    this.props.submit({email: "demo@demo.com", password: "demo123"})
+      .then(this.props.fetchSpots);
   }
 
   render() {

@@ -12,9 +12,7 @@ class SpotsIndex extends React.Component {
     this.revealMap = this.revealMap.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchSpots(this.props.params);
-  }
+  componentDidMount() {}
 
   revealMap() {
     this.setState({mapRevealed: !this.state.mapRevealed});
@@ -44,14 +42,25 @@ class SpotsIndex extends React.Component {
         </div>
       </div>
     ) : (
-      <p className="no-spots-message">Unforunately, there are no spots which match your search</p>
+      null
     )
-   
+    
+    const noResultsEl = (
+      <p className="no-results-message">Unforunately, there are no spots which match your search.</p>
+    )
+
+    const resultsHeader = (
+      <>
+        <h1>Top-rated spots</h1>
+        <p>Explore some of the best-reviewed homes in my seed file</p>
+      </>
+    )
+
+      
     return (
       <div className="spots-index-container">
         <div className="spots-index-spots-container">
-          <h1>Top-rated spots</h1>
-          <p>Explore some of the best-reviewed homes in my seed file</p>
+          {(this.props.indexItems.length === 0) ? noResultsEl : resultsHeader}
           <div className="spots-index-items-container">
             {indexItems}
           </div>

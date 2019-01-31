@@ -7,8 +7,6 @@ export const receiveParams = (params) => ({
   params
 })
 
-export const clearParams = (params) => ({
-  type: CLEAR_PARAMS,
-  params
+export const clearParams = () => ({
+  type: CLEAR_PARAMS
 })
-

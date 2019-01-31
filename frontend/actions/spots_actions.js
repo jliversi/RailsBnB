@@ -20,7 +20,16 @@ export const fetchSpot = (spotId) => dispatch => {
 };
 
 export const fetchSpots = (params) => dispatch => {
+  let responseData;
   return APISpotUtil.fetchSpots(params)
-    .then(r => dispatch(receiveSpots(r)))
-    .then(() => dispatch(receiveParams(params)));
+    .then(r => {
+      responseData = r;
+      return dispatch(receiveParams(params));
+    })
+    .then(() => dispatch(receiveSpots(responseData)));
 };
+
+
+
+
+

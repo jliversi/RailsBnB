@@ -1,5 +1,4 @@
 
-
 json.spots do
   @spots.each do |spot|
     json.set! spot.id do 

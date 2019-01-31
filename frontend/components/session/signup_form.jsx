@@ -35,7 +35,8 @@ class SignupForm extends React.Component {
       password: this.state.password,
       birth_year: this.state.birthYear
     };
-    this.props.submit(newUser);
+    this.props.submit(newUser)
+      .then(this.props.fetchSpots);
   }
 
  

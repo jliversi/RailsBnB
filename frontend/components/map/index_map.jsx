@@ -8,7 +8,7 @@ class IndexMap extends React.Component {
     this.addMarker = this.addMarker.bind(this);
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
     const map = ReactDOM.findDOMNode(this.refs.map);
     const options = {
       center: this.props.mapCenter,
@@ -21,11 +21,30 @@ class IndexMap extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    const numChanged = (prevProps.spots.length !== this.props.spots.length);
+    const firstChanged = (prevProps.spots[0].id !== this.props.spots[0].id);
+
+    if (numChanged || firstChanged) {
+      const map = ReactDOM.findDOMNode(this.refs.map);
+      const options = {
+        center: this.props.mapCenter,
+        zoom: 13
+      };
+      this.map = new google.maps.Map(map, options);
+  
+      if (this.props.spots) {
+        this.props.spots.forEach(this.addMarker);
+      }
+    }
+  }
+
   addMarker(spot) {
     const pos = new google.maps.LatLng(spot.lat, spot.lng);
 
     const icon = {
-      url: "http://maps.google.com/mapfiles/kml/paddle/wht-blank.png"
+      url: "http://maps.google.com/mapfiles/kml/paddle/wht-blank.png",
+      labelOrigin: new google.maps.Point(32, 20)
     }
     const marker = new google.maps.Marker({
       position: pos,
@@ -33,7 +52,7 @@ class IndexMap extends React.Component {
       label: {
         text: ("$" + spot.price.toString()),
         fontFamily: "Helvetica Neue",
-        fontSize: "10px",
+        fontSize: "14px",
         fontColor: "white"
       },
       

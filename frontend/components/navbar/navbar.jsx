@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ModalSessionForm from '../session/modal_session_container';
+import NavBarSearchContainer from './navbar_search_container';
 
 
 
@@ -11,6 +12,7 @@ class NavBar extends React.Component {
     this.reveal = this.reveal.bind(this);
     this.changeListener = this.changeListener.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.logoClick = this.logoClick.bind(this);
   }
 
   componentDidMount() {
@@ -30,6 +32,10 @@ class NavBar extends React.Component {
 
   handleLogout() {
     this.props.logout();
+  }
+
+  logoClick() {
+    this.props.fetchSpots({}).then(this.props.history.push('/index'))
   }
 
   render() {
@@ -52,8 +58,8 @@ class NavBar extends React.Component {
       <header>
         <div className="main-nav-bar">
           <div className="logo-and-search">
-            <Link className="nav-logo" to="/index">R</Link>
-            <p>Search Bar Goes Here</p>
+            <p className="nav-logo" onClick={this.logoClick}>R</p>
+            <NavBarSearchContainer /> 
           </div>
           {this.props.currentUser ? loggedInButtons : loggedOutButtons}
         </div>
@@ -63,3 +69,4 @@ class NavBar extends React.Component {
 };
 
 export default NavBar;
+
