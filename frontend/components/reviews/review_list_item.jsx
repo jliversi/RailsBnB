@@ -11,7 +11,7 @@ class ReviewListItem extends React.Component {
     return (
       <div className="review-list-item">
         <div className="review-details">
-          <img src="assets/rails_bnb.ico" alt=""/>
+          <img src="https://s3.amazonaws.com/railsbnb-pub/rails_bnb.ico" alt=""/>
           <div className="author-details">
             <h1>{review.author_name}</h1>
             <p>{review.month} {review.year}</p>

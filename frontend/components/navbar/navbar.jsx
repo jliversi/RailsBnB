@@ -1,12 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ModalSessionForm from '../session/modal_session_container';
+
+
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { dropdownActive: false};
+    this.state = { dropdownActive: false };
     this.reveal = this.reveal.bind(this);
     this.changeListener = this.changeListener.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   componentDidMount() {
@@ -24,7 +28,26 @@ class NavBar extends React.Component {
     }
   }
 
+  handleLogout() {
+    this.props.logout();
+  }
+
   render() {
+    const loggedInButtons = (
+      <div onClick={this.reveal} className='nav-bar-buttons-logged-in'>
+        <img src="https://s3.amazonaws.com/railsbnb-pub/rails_bnb.ico" alt="user-logo" />
+        <div onClick={this.stopProp} className={this.state.dropdownActive ? "account-buttons revealed" : "account-buttons hidden"}>
+          <ul>
+            <button onClick={this.handleLogout}>Logout</button>
+            <button>My Account</button>
+          </ul>
+        </div>
+      </div>
+    )
+
+    const loggedOutButtons = <ModalSessionForm buttonName={"nav-bar-button-logged-out"} contName={ "nav-bar-buttons-logged-out"}/> 
+
+
     return (
       <header>
         <div className="main-nav-bar">
@@ -32,15 +55,7 @@ class NavBar extends React.Component {
             <Link className="nav-logo" to="/index">R</Link>
             <p>Search Bar Goes Here</p>
           </div>
-          <div onClick={this.reveal} className='nav-bar-buttons'>
-            <img src="assets/rails_bnb.ico" alt="user-logo" />
-            <div onClick={this.stopProp} className={this.state.dropdownActive ? "account-buttons revealed" : "account-buttons hidden"}>
-              <ul>
-                <button onClick={this.props.logout}>Logout</button>
-                <button>My Account</button>
-              </ul>
-            </div>
-          </div>
+          {this.props.currentUser ? loggedInButtons : loggedOutButtons}
         </div>
       </header>
     )

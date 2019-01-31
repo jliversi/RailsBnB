@@ -23,9 +23,21 @@ class IndexMap extends React.Component {
 
   addMarker(spot) {
     const pos = new google.maps.LatLng(spot.lat, spot.lng);
+
+    const icon = {
+      url: "http://maps.google.com/mapfiles/kml/paddle/wht-blank.png"
+    }
     const marker = new google.maps.Marker({
       position: pos,
-      map: this.map
+      map: this.map,
+      label: {
+        text: ("$" + spot.price.toString()),
+        fontFamily: "Helvetica Neue",
+        fontSize: "10px",
+        fontColor: "white"
+      },
+      
+      icon
     });
     marker.addListener('click', () => {
       const ext = `/spots/${spot.id}`;

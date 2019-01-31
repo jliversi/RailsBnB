@@ -61,7 +61,7 @@ class SpotsShow extends React.Component {
             </div>
             <ShowReviewsContainer spot={spot} reviews={reviews} />
             <div className="host-info">
-              <img src="assets/rails_bnb.ico" alt="" />
+              <img src="https://s3.amazonaws.com/railsbnb-pub/rails_bnb.ico" alt="" />
               <h1>Hosted by {host.first_name}</h1>
               <span>New York,New York,United States · Joined in {host.join_month}&nbsp;{host.join_year}</span>
               <p><br/></p>

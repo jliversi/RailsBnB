@@ -2,18 +2,23 @@
   padding: 50px 80px;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #484848;
+  display: flex;
+  width: 1300px;
+  justify-content: space-between;
+  min-height: 600px;
+  margin: 0 auto;
 }
 
-.spots-index-container a {
+.spots-index-spots-container a {
   text-decoration: none;
 }
 
-.spots-index-container > h1 {
+.spots-index-spots-container > h1 {
   font-size: 23px;
   margin-bottom: 10px;
   font-weight: 500;
 }
-.spots-index-container > p {
+.spots-index-spots-container > p {
   font-size: 16px;
   margin-bottom: 30px;
   font-weight: 200;
@@ -22,17 +27,20 @@
 .spots-index-items-container {
   display: flex;
   flex-wrap: wrap;
+  max-width: 1000px;
 }
 
 .index-item-img {
   height: 200px;
   margin-bottom: 5px;
+  width: 300px;
 }
 
 .index-item {
   margin-right: 17px;
   box-sizing: border-box;
   margin-bottom: 30px;
+  width: 302px;
 }
 
 .index-type {
@@ -73,4 +81,96 @@
   font-size: 12px;
   color: rgb(72, 72, 72);
   margin-left: 6px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #368389;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #368389;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.index-map-container {
+  transition: width 0.5s;
+  overflow: hidden;
+  position: absolute;
+  right: -5px;
+  top: 50px;
+}
+
+.revealed-map {
+  width: 500px;
+}
+
+.hidden-map {
+  width: 0;
+}
+
+.map-show-switch {
+  display: flex;
+  float: right;
+  position: relative;
+}
+
+.map-show-switch p {
+  position: absolute;
+  width: 66px;
+  color: #368389;
+  font-size: 14px;
+  font-weight: 200;
+  right: 65px;
+  top: 8px;
+}
+
+.top-level-index-map-container-revealed {
+  width: 100%;
+  max-width: 520px;
 }

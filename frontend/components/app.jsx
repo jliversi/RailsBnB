@@ -15,8 +15,7 @@ const App = () => {
         <AuthRoute exact path="/" component={SplashContainer} /> 
         <Route path="/" component={NavBarContainer} />  
       </Switch>
-      <ProtectedRoute exact path="/index" component={SearchFilterButtons} /> 
-      <Route exact path="/" component={SpotsIndexContainer}/> 
+      <Route exact path="/index" component={SearchFilterButtons} /> 
       <Route exact path="/index" component={SpotsIndexContainer}/>
       <ProtectedRoute exact path="/spots/:spotId" component={SpotsShowContainer} />
 

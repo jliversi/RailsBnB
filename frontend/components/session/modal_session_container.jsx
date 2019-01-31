@@ -47,8 +47,10 @@ class ModalSessionForm extends React.Component {
   render() {
     return (
       <div>
-        <button className="splash-nav-button" onClick={this.handleOpenModalSignup}>Sign up</button>
-        <button className="splash-nav-button" onClick={this.handleOpenModalLogin}>Log in</button>
+        <div className={this.props.contName}>
+          <button className={this.props.buttonName} onClick={this.handleOpenModalSignup}>Sign up</button>
+          <button className={this.props.buttonName} onClick={this.handleOpenModalLogin}>Log in</button>
+        </div>
 
         <ReactModal 
           ariaHideApp={false} 

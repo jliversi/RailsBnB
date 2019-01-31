@@ -18,8 +18,8 @@
 #
 
 class Spot < ApplicationRecord 
-  validates :lng, :lat, :num_rooms, :num_guests, :num_bathrooms, :num_beds, :host_id, presence: true
-  validates :title, :address, presence: true, uniqueness: true 
+  validates :lng, :lat, :num_rooms, :num_guests, :num_bathrooms, :num_beds, :host_id, :address, presence: true
+  validates :title, presence: true, uniqueness: true 
 
   has_many :bookings,
     class_name: "Booking",

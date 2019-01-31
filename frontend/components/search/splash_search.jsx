@@ -22,6 +22,20 @@ class SplashSearch extends React.Component {
     this.changeListener = this.changeListener.bind(this);
   }
 
+  componentDidMount() {
+    const addGuest = this.addGuest;
+    const subtractGuest = this.subtractGuest;
+
+    document.getElementById('search-guests-subtract').addEventListener('click', function (e) {
+      e.stopPropagation();
+      subtractGuest();
+    }, true);
+    document.getElementById('search-guests-plus').addEventListener('click', function (e) {
+      e.stopPropagation();
+      addGuest();
+    }, true);
+  }
+
   openCalendar() {
     this.setState({calendarActive: !this.state.calendarActive, guestsActive: false});
   }
@@ -53,6 +67,10 @@ class SplashSearch extends React.Component {
     }
   }
 
+  handleSubmit(e) {
+    e.preventDefault();
+  }
+
 
   render() {
     const today = moment();
@@ -63,29 +81,33 @@ class SplashSearch extends React.Component {
     return (
       <div className="splash-search-container">
         <h1>Book unique homes and experiences</h1>
-        <form className="splash-search-form">
-          <label htmlFor="location">Where
-            <input id="location" type="text" placeholder="Anywhere"/>
-          </label>
-          <label htmlFor="start-date">Check in
-            <input type="text"
-              id="start-date"
-              placeholder="mm/dd/yyyy"
-              value={startDateString}
-              readOnly 
-              onClick={this.openCalendar}
-            />
-          </label>
-          <label htmlFor="end-date">Check out
-            <input type="text"
-              id="end-date"
-              placeholder="mm/dd/yyyy"
-              value={endDateString}
-              readOnly 
-              onClick={this.openCalendar}
-            />
-          </label>
-          <label htmlFor="num-guests">Guests
+        <form className="splash-search-form" onSubmit={this.handleSubmit}>
+          <label htmlFor="location">WHERE</label>
+          <input id="location" type="text" placeholder="Anywhere"/>
+          
+          <div className="search-date-inputs">
+            <label htmlFor="start-date">CHECK IN
+              <input type="text"
+                id="start-date"
+                placeholder="mm/dd/yyyy"
+                value={startDateString}
+                readOnly 
+                onClick={this.openCalendar}
+                className="splash-date-input"
+              />
+            </label>
+            <label htmlFor="end-date">CHECK OUT
+              <input type="text"
+                id="end-date"
+                placeholder="mm/dd/yyyy"
+                value={endDateString}
+                readOnly 
+                onClick={this.openCalendar}
+                className="splash-date-input"
+              />
+            </label>
+          </div>
+          <label htmlFor="num-guests">GUESTS</label>
             <input type="number"
               id="num-guests"
               placeholder="Guests"
@@ -93,8 +115,8 @@ class SplashSearch extends React.Component {
               onClick={this.openGuests}
               readOnly
             />
-          </label>
-          <button>Search</button>
+          
+          <button className="splash-search-button">Search</button>
         </form>
         <div className={this.state.calendarActive ? "revealed splash-search-calendar" : "hidden splash-search-calendar"}>
         
@@ -113,11 +135,16 @@ class SplashSearch extends React.Component {
             onFocusChange={(focusedInput) => this.setState({ focusedInput: focusedInput })}
           />
         </div>
-        <div className={this.state.guestsActive ? "revealed splash-search-guests" : "hidden splash-search-guests"}>
+
+
+        <div className={this.state.guestsActive ? "revealed-guests splash-search-guests" : "hidden splash-search-guests"}>
           <h3>Guests</h3>
-          <button className={(this.state.numGuests > 1) ? "revealed" : "hidden"} onClick={this.subtractGuest}>-</button>
-          <span>{this.state.numGuests}</span>
-          <button onClick={this.addGuest}>+</button>
+          <div className="splash-search-guests-buttons">
+            <button id="search-guests-subtract" className={(this.state.numGuests > 1) ? "revealed" : "hidden"}>-</button>
+            <button id="search-guests-placeholder" className={(this.state.numGuests <= 1) ? "revealed" : "hidden"}>-</button>
+            <span className="splash-num-guests">{this.state.numGuests}</span>
+            <button id="search-guests-plus" >+</button>
+          </div>
         </div>
       </div>
     )

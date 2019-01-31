@@ -23,27 +23,27 @@
   display: flex;
 }
 
-.nav-bar-buttons img {
+.nav-bar-buttons-logged-in img {
   background-color: lightgray;
   height: 45px;
   width: 45px;
   border-radius: 50%;
 }
 
-.nav-bar-buttons:hover {
+.nav-bar-buttons-logged-in:hover {
   border-bottom: 2px solid #495966;
 }
 
-.nav-bar-buttons {
+.nav-bar-buttons-logged-in {
   position: relative;
   box-sizing: border-box;
 }
 
-.nav-bar-buttons .hidden {
+.nav-bar-buttons-logged-in .hidden {
   display: none;
 }
 
-.nav-bar-buttons .revealed {
+.nav-bar-buttons-logged-in .revealed {
   display: block;
   position: absolute;
   top: 36px;
@@ -70,4 +70,28 @@
 
 .account-buttons button:hover {
   border-bottom: 1px solid black;
+}
+
+.nav-bar-button-logged-out {
+  color: #484848;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  height: 40px;
+  background: none;
+  border: none;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 1px;
+  padding-left: 15px;
+}
+
+.nav-bar-button-logged-out:hover {
+  border-bottom: 3px solid #484848;
+}
+
+.nav-bar-buttons-logged-out {
+  position: absolute;
+  display: flex;
+  right: 50px;
+  top: 8px;
 }

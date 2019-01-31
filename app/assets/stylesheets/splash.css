@@ -65,32 +65,134 @@ button:focus {
   color: white;
 }
 
-.splash h1 {
-  font-size: 50px;
-  font-weight: 500;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.3);
-  margin-left: 85px;
-  margin-bottom: 50px;
-  
-}
 
 .splash-search-container {
-  width: 900px;
-  margin: 0 auto;
-  
-  
+  width: 440px;
+  height: 475px;
+  background-color: white;
+  box-sizing: border-box;
+  color: #484848;
+  padding: 30px;
+  margin-left: 15vw;
+  border-radius: 4px;
+  position: relative;
 }
 
-.splash-search-container h2 {
-  background: white;
-  border: 1px solid black;
-  padding: 10px;
-  height: 150px;
-  color: black;
-  border-radius: 5px;
+.splash-search-container h1 {
+  font-size: 30px;
+  line-height: 36px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.splash-search-button {
+  background-color: rgb(255, 90, 95);
+  padding: 14px 22px;
+  color: white;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 105px;
+  position: absolute;
+  top: 380px;
+  left: 305px;
+}
+
+.splash-search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-date-inputs {
+  display: flex;
+}
+
+.splash-date-input {
+  width: 185px;
+  margin-top: 10px;
+}
+
+.splash-search-form input {
+  font-size: 17px;
+  padding: 15px 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  font-weight: 200;
+}
+
+.splash-search-calendar {
+  position: absolute;
+  top: 285px;
+  left: 10px;
+}
+
+
+.splash-search-guests #search-guests-subtract{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #3c8a90;
+  color: #3c8a90;
+}
+
+.splash-search-guests #search-guests-plus{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid #3c8a90;
+  color: #3c8a90;
+}
+
+.splash-search-guests #search-guests-placeholder{
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border: 1px solid white;
+  color: white;
+}
+
+.splash-search-form input:focus {
+  outline: none;  
+}
+
+.splash-search-form label {
+  font-size: 12px;
+  font-weight: 800; 
+  margin-bottom: 8px;
 }
 
 .revealed {display: block;}
+
+.revealed-guests {
+  display: flex;
+  height: 90px;
+  width: 375px;
+  border-radius: 4px;
+  z-index: 2;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 25px;
+  border: 1px solid #ccc;
+  position: absolute;
+  justify-content: space-between;
+  top: 375px;
+  align-items: center;
+}
+
+.splash-num-guests {
+  position: absolute;
+  right: 83px;
+  top: 35px;
+}
+
+.splash-search-guests-buttons {
+  display: flex;
+  width: 130px;
+  justify-content: space-between;
+}
 
 .hidden {display: none;}
   

@@ -17,13 +17,9 @@ class Splash extends React.Component {
             <div className="splash-logo-container">
               <p className="logo">R</p>
             </div>
-            <div className="splash-nav-buttons">
-              <ModalSessionForm  />
-            </div>
+            <ModalSessionForm buttonName={"splash-nav-button"} contName={"splash-nav-buttons"}/>
           </header>
-
-          <h1>Plan your next trip</h1>
-          <div className="splash-search-container">
+          <div>
             <SplashSearch />
           </div>
         </div>
