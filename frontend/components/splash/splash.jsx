@@ -1,6 +1,8 @@
 import React from 'react';
 import ModalSessionForm from '../session/modal_session_container';
-import SplashSearch from '../search/splash_search';
+import SplashSearchContainer from '../search/splash_search_container';
+
+
 
 class Splash extends React.Component {
   constructor(props) {
@@ -20,7 +22,7 @@ class Splash extends React.Component {
             <ModalSessionForm buttonName={"splash-nav-button"} contName={"splash-nav-buttons"}/>
           </header>
           <div>
-            <SplashSearch />
+            <SplashSearchContainer />
           </div>
         </div>
       </>

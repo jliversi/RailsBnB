@@ -6,6 +6,7 @@ class SplashSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      location: "",
       startDate: null,
       endDate: null,
       focusedInput: 'startDate',
@@ -20,6 +21,8 @@ class SplashSearch extends React.Component {
     this.addGuest = this.addGuest.bind(this);
     this.closeGuests = this.closeGuests.bind(this);
     this.changeListener = this.changeListener.bind(this);
+    this.update = this.update.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -67,8 +70,20 @@ class SplashSearch extends React.Component {
     }
   }
 
+  update(field) {
+    return e => this.setState({
+      [field]: e.currentTarget.value
+    });
+  }
   handleSubmit(e) {
     e.preventDefault();
+    const params = {
+      location: this.state.location,
+      startDate: this.state.startDate.format(),
+      endDate: this.state.endDate.format(),
+      numGuests: this.state.numGuests
+    }
+    this.props.fetchSpots(params).then(this.props.history.push('/index'));
   }
 
 
@@ -83,7 +98,11 @@ class SplashSearch extends React.Component {
         <h1>Book unique homes and experiences</h1>
         <form className="splash-search-form" onSubmit={this.handleSubmit}>
           <label htmlFor="location">WHERE</label>
-          <input id="location" type="text" placeholder="Anywhere"/>
+          <input id="location" 
+            type="text" 
+            placeholder="Anywhere" 
+            onChange={this.update("location")}
+          />
           
           <div className="search-date-inputs">
             <label htmlFor="start-date">CHECK IN

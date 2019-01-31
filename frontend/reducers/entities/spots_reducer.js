@@ -8,7 +8,11 @@ const spotsReducer = (state = {}, action) => {
     case RECEIVE_SPOT:
       return merge({}, state, action.spot.spot);
     case RECEIVE_SPOTS:
-      return action.spots.spots;
+      if (action.spots.spots) {
+        return action.spots.spots;
+      } else {
+        return state;
+      }
     default:
       return state;
   }

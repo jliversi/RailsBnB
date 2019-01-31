@@ -13,11 +13,15 @@ class SpotsIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchSpots();
+    this.props.fetchSpots(this.props.params);
   }
 
   revealMap() {
     this.setState({mapRevealed: !this.state.mapRevealed});
+  }
+
+  componentWillUnmount() {
+    this.props.clearParams();
   }
 
 
@@ -25,6 +29,23 @@ class SpotsIndex extends React.Component {
     const indexItems = Object.values(this.props.spots).map(spot => {
       return <SpotsIndexItemContainer spot={spot} key={spot.id} />
     });
+
+    const mapSection = (this.props.indexItems.length > 0) ? (
+      <div className={(this.state.mapRevealed) ? 'top-level-index-map-container-revealed' : 'top-level-index-map-container'}>
+        <div className="map-show-switch">
+          <p>Show Map</p>
+          <label className="switch">
+            <input type="checkbox" onClick={this.revealMap} />
+            <span className="slider round"></span>
+          </label>
+          <div className={(this.state.mapRevealed) ? 'revealed-map index-map-container' : 'hidden-map index-map-container'}>
+            <MapContainer />
+          </div>
+        </div>
+      </div>
+    ) : (
+      <p className="no-spots-message">Unforunately, there are no spots which match your search</p>
+    )
    
     return (
       <div className="spots-index-container">
@@ -36,18 +57,8 @@ class SpotsIndex extends React.Component {
           </div>
         </div>
 
-        <div className={(this.state.mapRevealed) ? 'top-level-index-map-container-revealed' : 'top-level-index-map-container'}>
-          <div className="map-show-switch">
-            <p>Show Map</p>
-            <label className="switch">
-              <input type="checkbox" onClick={this.revealMap}/>
-              <span className="slider round"></span>
-            </label>
-            <div className={(this.state.mapRevealed) ? 'revealed-map index-map-container' : 'hidden-map index-map-container'}>
-              <MapContainer />
-            </div>
-          </div>
-        </div>
+        {mapSection}
+        
         
       </div>
     )

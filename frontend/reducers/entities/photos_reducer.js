@@ -8,7 +8,11 @@ const photosReducer = (state = {}, action) => {
     case RECEIVE_SPOT:
       return merge({}, state, action.spot.photos);
     case RECEIVE_SPOTS:
-      return action.spots.photos;
+      if (action.spots.photos) {
+        return action.spots.photos;
+      } else {
+        return state;
+      }
     default:
       return state;
   }

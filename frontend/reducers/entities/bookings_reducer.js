@@ -8,7 +8,11 @@ const bookingsReducer = (state = {}, action) => {
     case RECEIVE_SPOT:
       return merge({}, state, action.spot.bookings);
     case RECEIVE_SPOTS:
-      return action.spots.bookings;
+      if (action.spots.bookings) {
+        return action.spots.bookings;
+      } else {
+        return state;
+      }
     default:
       return state;
   }

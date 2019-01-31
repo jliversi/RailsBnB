@@ -2,11 +2,8 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import { fetchSpot, fetchSpots } from './actions/spots_actions';
 import 'react-dates/initialize';
-import moment from 'moment';
-import { isSameDay } from 'react-dates';
-
+import moment from 'moment'
 
 document.addEventListener("DOMContentLoaded", () => {
   const root = document.getElementById("root");
@@ -29,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("hashchange", () => {
     window.scrollTo(0, 0);
   });
-
+  
+  window.moment = moment 
 
 });

@@ -14,7 +14,7 @@ const msp = (state, ownProps) => {
     spots = Object.values(state.entities.spots);
   } else {
     mapCenter = {};
-    spots = {};
+    spots = [];
   }
   return {
     mapCenter,
