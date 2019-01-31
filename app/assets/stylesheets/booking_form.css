@@ -84,3 +84,19 @@
 .booking-dates {
   display: flex;
 }
+
+.revealed-guests-request {
+  display: flex;
+  height: 90px;
+  width: 375px;
+  border-radius: 4px;
+  z-index: 2;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 25px;
+  border: 1px solid #ccc;
+  position: absolute;
+  justify-content: space-between;
+  top: 228px;
+  align-items: center;
+}

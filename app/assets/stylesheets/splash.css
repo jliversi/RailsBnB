@@ -154,6 +154,12 @@ button:focus {
   color: white;
 }
 
+.splash-search-guests-buttons {
+  display: flex;
+  width: 130px;
+  justify-content: space-between;
+}
+
 .splash-search-form input:focus {
   outline: none;  
 }
@@ -188,11 +194,6 @@ button:focus {
   top: 35px;
 }
 
-.splash-search-guests-buttons {
-  display: flex;
-  width: 130px;
-  justify-content: space-between;
-}
 
 .hidden {display: none;}
   

@@ -3,6 +3,7 @@ import { logout } from '../../actions/session_actions';
 import NavBar from './navbar';
 import { withRouter } from 'react-router-dom';
 import { fetchSpots } from '../../actions/spots_actions';
+import { clearParams } from '../../actions/search_actions';
 
 const msp = (state, ownProps) => {
   return {
@@ -14,7 +15,8 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => {
   return {
     logout: () => dispatch(logout()),
-    fetchSpots: (params) => dispatch(fetchSpots(params))
+    fetchSpots: (params) => dispatch(fetchSpots(params)),
+    clearParams: () => dispatch(clearParams())
   };
 };
 

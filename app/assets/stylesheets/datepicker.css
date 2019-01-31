@@ -612,7 +612,8 @@
 .DayPicker_transitionContainer {
   position: relative;
   overflow: hidden;
-  border-radius: 3px
+  border-radius: 3px;
+  height: 240px;
 }
 .DayPicker_transitionContainer__horizontal {
   -webkit-transition: height .2s ease-in-out;

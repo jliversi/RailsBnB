@@ -48,3 +48,4 @@ class NavBarSearch extends React.Component {
 } 
 
 export default NavBarSearch;
+

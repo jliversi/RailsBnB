@@ -32,6 +32,7 @@ spotDescription = "I am a description. Lorem ipsum dolor sit amet, consectetur a
 
 pricesArr = (20..100).to_a
 num_thingsArr = (4..8).to_a
+num_guestsArr = (1..5).to_a
 latDiff = 40.764296 - 40.746278
 latStart = 40.746278
 lngDiff = 73.995409 - 73.972428
@@ -45,7 +46,7 @@ lngStartBk = -73.991466
 Spot.create(address: "22 W 38th St, New York, NY 10018", 
   lng: (lngStart + (lngDiff * (rand))), lat: (latStart + (latDiff * (rand))),
   title: "Sweet office space", price: pricesArr.sample,
-  num_rooms: num_thingsArr.sample, num_guests: num_thingsArr.sample, 
+  num_rooms: num_thingsArr.sample, num_guests: num_guestsArr.sample, 
   num_bathrooms: num_thingsArr.sample, num_beds: num_thingsArr.sample, 
   host_id: User.last.id, spot_type: "Office", 
   location: "Manhattan", rules: "These are some seed rules",
@@ -54,7 +55,7 @@ Spot.create(address: "22 W 38th St, New York, NY 10018",
 Spot.create(address: "22 W 38th St, New York, NY 10018", 
   lng: (lngStart + (lngDiff * (rand))), lat: (latStart + (latDiff * (rand))),
   title: "Another office space", price: pricesArr.sample,
-  num_rooms: num_thingsArr.sample, num_guests: num_thingsArr.sample, 
+  num_rooms: num_thingsArr.sample, num_guests: num_guestsArr.sample, 
   num_bathrooms: num_thingsArr.sample, num_beds: num_thingsArr.sample, 
   host_id: User.last.id, spot_type: "Office", 
   location: "Manhattan", rules: "These are some seed rules",
@@ -63,7 +64,7 @@ Spot.create(address: "22 W 38th St, New York, NY 10018",
 Spot.create(address: "22 W 38th St, New York, NY 10018", 
   lng: (lngStart + (lngDiff * (rand))), lat: (latStart + (latDiff * (rand))),
   title: "Yet another office space", price: pricesArr.sample,
-  num_rooms: num_thingsArr.sample, num_guests: num_thingsArr.sample, 
+  num_rooms: num_thingsArr.sample, num_guests: num_guestsArr.sample, 
   num_bathrooms: num_thingsArr.sample, num_beds: num_thingsArr.sample, 
   host_id: User.last.id, spot_type: "Office", 
   location: "Manhattan", rules: "These are some seed rules",
@@ -72,7 +73,7 @@ Spot.create(address: "22 W 38th St, New York, NY 10018",
 Spot.create(address: "22 W 38th St, New York, NY 10018", 
   lng: (lngStartBk + (lngDiffBk * (rand))), lat: (latStartBk + (latDiffBk * (rand))),
   title: "I'm running out of names for office spaces", price: pricesArr.sample,
-  num_rooms: num_thingsArr.sample, num_guests: num_thingsArr.sample, 
+  num_rooms: num_thingsArr.sample, num_guests: num_guestsArr.sample, 
   num_bathrooms: num_thingsArr.sample, num_beds: num_thingsArr.sample, 
   host_id: User.last.id, spot_type: "Office", 
   location: "Brooklyn", rules: "These are some seed rules",
@@ -81,7 +82,16 @@ Spot.create(address: "22 W 38th St, New York, NY 10018",
 Spot.create(address: "22 W 38th St, New York, NY 10018", 
   lng: (lngStartBk + (lngDiffBk * (rand))), lat: (latStartBk + (latDiffBk * (rand))),
   title: "Is this another office space? Yes", price: pricesArr.sample,
-  num_rooms: num_thingsArr.sample, num_guests: num_thingsArr.sample, 
+  num_rooms: num_thingsArr.sample, num_guests: num_guestsArr.sample, 
+  num_bathrooms: num_thingsArr.sample, num_beds: num_thingsArr.sample, 
+  host_id: User.last.id, spot_type: "Office", 
+  location: "Brooklyn", rules: "These are some seed rules",
+  description: spotDescription)
+
+Spot.create(address: "22 W 38th St, New York, NY 10018", 
+  lng: (lngStartBk + (lngDiffBk * (rand))), lat: (latStartBk + (latDiffBk * (rand))),
+  title: "Last office space I swear", price: pricesArr.sample,
+  num_rooms: num_thingsArr.sample, num_guests: num_guestsArr.sample, 
   num_bathrooms: num_thingsArr.sample, num_beds: num_thingsArr.sample, 
   host_id: User.last.id, spot_type: "Office", 
   location: "Brooklyn", rules: "These are some seed rules",
@@ -112,6 +122,10 @@ SpotsAmenitiesJoin.create(amenity_id: Amenity.all[0].id, spot_id: Spot.all[4].id
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[1].id, spot_id: Spot.all[4].id)
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[2].id, spot_id: Spot.all[4].id)
 SpotsAmenitiesJoin.create(amenity_id: Amenity.all[3].id, spot_id: Spot.all[4].id)
+
+SpotsAmenitiesJoin.create(amenity_id: Amenity.all[0].id, spot_id: Spot.all[5].id)
+SpotsAmenitiesJoin.create(amenity_id: Amenity.all[1].id, spot_id: Spot.all[5].id)
+SpotsAmenitiesJoin.create(amenity_id: Amenity.all[3].id, spot_id: Spot.all[5].id)
 
 possibleStartDates1 = [
   "2/2/2019",
@@ -214,6 +228,13 @@ Booking.create(status: true, start_date: possibleStartDates2.sample,
   end_date: possibleEndDates2.sample, spot_id: Spot.all[4].id,
   user_id: User.first.id, num_guests: numGuestsArr.sample)
 
+Booking.create(status: true, start_date: possibleStartDates1.sample, 
+  end_date: possibleEndDates1.sample, spot_id: Spot.all[5].id,
+  user_id: User.first.id, num_guests: numGuestsArr.sample)
+Booking.create(status: true, start_date: possibleStartDates2.sample, 
+  end_date: possibleEndDates2.sample, spot_id: Spot.all[5].id,
+  user_id: User.first.id, num_guests: numGuestsArr.sample)
+
 Booking.create(status: true, start_date: possibleStartDatesOld1.sample, 
   end_date: possibleEndDatesOld1.sample, spot_id: Spot.first.id,
   user_id: User.first.id, num_guests: numGuestsArr.sample)
@@ -249,7 +270,14 @@ Booking.create(status: true, start_date: possibleStartDatesOld2.sample,
   end_date: possibleEndDatesOld2.sample, spot_id: Spot.all[4].id,
   user_id: User.first.id, num_guests: numGuestsArr.sample)
 
-possibleBookingsIdsSorted = Booking.all[9..19].map {|booking| booking.id }
+Booking.create(status: true, start_date: possibleStartDatesOld1.sample, 
+  end_date: possibleEndDatesOld1.sample, spot_id: Spot.all[5].id,
+  user_id: User.first.id, num_guests: numGuestsArr.sample)
+Booking.create(status: true, start_date: possibleStartDatesOld2.sample, 
+  end_date: possibleEndDatesOld2.sample, spot_id: Spot.all[5].id,
+  user_id: User.first.id, num_guests: numGuestsArr.sample)
+
+possibleBookingsIdsSorted = Booking.all[11..23].map {|booking| booking.id }
 possibleBookingsIds = possibleBookingsIdsSorted.shuffle
 
 
@@ -261,6 +289,16 @@ reviewBodyArr = [
   "This is a seed review"
 ]
 
+
+Review.create(body: reviewBodyArr.sample,
+  booking_id: possibleBookingsIds.pop, author_id: User.first.id,
+  accuracy: ratingsArr.sample, communication: ratingsArr.sample, cleanliness: ratingsArr.sample,
+  location: ratingsArr.sample, check_in: ratingsArr.sample, value: ratingsArr.sample)
+
+Review.create(body: reviewBodyArr.sample,
+  booking_id: possibleBookingsIds.pop, author_id: User.first.id,
+  accuracy: ratingsArr.sample, communication: ratingsArr.sample, cleanliness: ratingsArr.sample,
+  location: ratingsArr.sample, check_in: ratingsArr.sample, value: ratingsArr.sample)
 
 Review.create(body: reviewBodyArr.sample,
   booking_id: possibleBookingsIds.pop, author_id: User.first.id,
@@ -357,4 +395,11 @@ Photo.create(url: urlsArr.rotate(4)[1], spot_id: Spot.all[4].id, caption: captio
 Photo.create(url: urlsArr.rotate(4)[2], spot_id: Spot.all[4].id, caption: captionsArr.sample)
 Photo.create(url: urlsArr.rotate(4)[3], spot_id: Spot.all[4].id, caption: captionsArr.sample)
 Photo.create(url: urlsArr.rotate(4)[4], spot_id: Spot.all[4].id, caption: captionsArr.sample)
+
+urlsArrShuffled = urlsArr.shuffle
+Photo.create(url: urlsArrShuffled[0], spot_id: Spot.all[5].id, caption: captionsArr.sample)
+Photo.create(url: urlsArrShuffled[1], spot_id: Spot.all[5].id, caption: captionsArr.sample)
+Photo.create(url: urlsArrShuffled[2], spot_id: Spot.all[5].id, caption: captionsArr.sample)
+Photo.create(url: urlsArrShuffled[3], spot_id: Spot.all[5].id, caption: captionsArr.sample)
+Photo.create(url: urlsArrShuffled[4], spot_id: Spot.all[5].id, caption: captionsArr.sample)
   

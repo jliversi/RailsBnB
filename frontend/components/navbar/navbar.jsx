@@ -35,7 +35,7 @@ class NavBar extends React.Component {
   }
 
   logoClick() {
-    this.props.fetchSpots({}).then(this.props.history.push('/index'))
+    this.props.fetchSpots({}).then(this.props.clearParams()).then(this.props.history.push('/index'))
   }
 
   render() {

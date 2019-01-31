@@ -10,7 +10,8 @@ class BookingForm extends React.Component {
     this.state = {
       startDate: null,
       endDate: null,
-      numGuests: 1
+      numGuests: 1,
+      focusedInput: 'startDate'
     }
     this.openCalendar = this.openCalendar.bind(this);
     this.openGuests = this.openGuests.bind(this);
@@ -27,11 +28,11 @@ class BookingForm extends React.Component {
     const addGuest = this.addGuest;
     const subtractGuest = this.subtractGuest;
 
-    document.getElementById('request-guests-subtract').addEventListener('click', function (e) {
+    document.getElementById('search-guests-subtract').addEventListener('click', function (e) {
       e.stopPropagation();
       subtractGuest();
     }, true);
-    document.getElementById('request-guests-plus').addEventListener('click', function (e) {
+    document.getElementById('search-guests-plus').addEventListener('click', function (e) {
       e.stopPropagation();
       addGuest();
     }, true);
@@ -140,11 +141,10 @@ class BookingForm extends React.Component {
 
           <DayPickerRangeController
             startDate={this.state.startDate}
-            noBorder={true}
             endDate={this.state.endDate}
             isOutsideRange={day => isInclusivelyAfterDay(today, day)}
             enableOutsideDays={false}
-            numberOfMonths={2}
+            numberOfMonths={1}
             onOutsideClick={this.closeCalendar}
             onPrevMonthClick={DayPickerRangeController.onPrevMonthClick}
             onNextMonthClick={DayPickerRangeController.onNextMonthClick}
@@ -154,11 +154,15 @@ class BookingForm extends React.Component {
             isDayBlocked={this.isDayBlocked}
           />
         </div>
-        <div id="request-guests" className={this.state.guestsActive ? "revealed request-guests" : "hidden request-guests"}>
+
+        <div className={this.state.guestsActive ? "revealed-guests-request splash-search-guests" : "hidden splash-search-guests"}>
           <h3>Guests</h3>
-          <button id="request-guests-subtract" className={(this.state.numGuests > 1) ? "revealed" : "hidden"}>-</button>
-          <span>{this.state.numGuests}</span>
-          <button id="request-guests-plus">+</button>
+          <div className="splash-search-guests-buttons">
+            <button id="search-guests-subtract" className={(this.state.numGuests > 1) ? "revealed" : "hidden"}>-</button>
+            <button id="search-guests-placeholder" className={(this.state.numGuests <= 1) ? "revealed" : "hidden"}>-</button>
+            <span className="splash-num-guests">{this.state.numGuests}</span>
+            <button id="search-guests-plus" >+</button>
+          </div>
         </div>
       </div>
     )
