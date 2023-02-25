@@ -39,13 +39,13 @@ class NavBar extends React.Component {
   }
 
   render() {
+      const userLetter = this.props.currentUser ? this.props.user.first_name[0] : '';
     const loggedInButtons = (
       <div onClick={this.reveal} className='nav-bar-buttons-logged-in'>
-        <img src="https://s3.amazonaws.com/railsbnb-pub/rails_bnb.ico" alt="user-logo" />
+        <div className='user-logo'>{userLetter}</div>
         <div onClick={this.stopProp} className={this.state.dropdownActive ? "account-buttons revealed" : "account-buttons hidden"}>
           <ul>
             <button onClick={this.handleLogout}>Logout</button>
-            <button>My Account</button>
           </ul>
         </div>
       </div>

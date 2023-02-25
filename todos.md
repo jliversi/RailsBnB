@@ -1,6 +1,5 @@
 RailsBnb Todos
 	
-	fix calendars!!!!
 
 	complete bookings
 		finish backend (post, delete, update?)
@@ -26,4 +25,4 @@ RailsBnb Todos
 	user profile
 		uploading photos? 
 			user table needs photos? maybe make photos polymorphic? 
-
+s

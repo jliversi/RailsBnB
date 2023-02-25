@@ -95,6 +95,7 @@
 
 .x-button {
   font-size: 40px;
+  background: transparent;
   border-radius: 50%;
   height: 35px;
   width: 35px;

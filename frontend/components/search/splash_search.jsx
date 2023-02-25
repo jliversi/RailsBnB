@@ -37,6 +37,10 @@ class SplashSearch extends React.Component {
       e.stopPropagation();
       addGuest();
     }, true);
+
+    // Hack to fix calendar height, move the months while its hidden
+    document.getElementsByClassName('DayPickerNavigation_rightButton__horizontalDefault')[0].click();
+    setTimeout(() => document.getElementsByClassName('DayPickerNavigation_leftButton__horizontalDefault')[0].click(), 500);
   }
 
   openCalendar() {
@@ -141,7 +145,7 @@ class SplashSearch extends React.Component {
           
           <button className="splash-search-button">Search</button>
         </form>
-        <div className={this.state.calendarActive ? "revealed splash-search-calendar" : "hidden splash-search-calendar"}>
+        <div className={this.state.calendarActive ? "revealed splash-search-calendar" : "hidden-cal splash-search-calendar"}>
         
           <DayPickerRangeController
             startDate={this.state.startDate}

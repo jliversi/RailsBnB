@@ -25,11 +25,18 @@
   display: flex;
 }
 
-.nav-bar-buttons-logged-in img {
-  background-color: lightgray;
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
+.nav-bar-buttons-logged-in > .user-logo  {
+
+cursor: pointer;
+    background-color: lightgray;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    font-size: 30px;
+    text-align: center;
+    line-height: 45px;
+    color: #484848;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .nav-bar-buttons-logged-in:hover {

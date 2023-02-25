@@ -1,4 +1,5 @@
 .show-photos-container {
+  cursor: pointer;
   height: 600px;
   width: 100vw;
   display: flex;
@@ -71,6 +72,7 @@
 }
 
 .photos-modal-overlay {
+  z-index: 100;
   position: fixed; 
   top: 0px; 
   left: 0px; 
